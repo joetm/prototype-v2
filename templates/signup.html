@@ -1,0 +1,80 @@
+<div id="signup-form" class="page">
+<div class="container">
+<div class="row" style="margin-left:auto;margin-right:auto;">
+<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+
+		<!--
+		<div class="visible-xs">xs</div>
+		<div class="visible-sm">sm</div>
+		<div class="visible-md">md</div>
+		<div class="visible-lg">lg</div>
+		-->
+
+		<div data-ng-show="error.status" class="error_msg">
+			<span class="label label-danger">{{error.status}} Error</span>
+			{{error.msg}}
+		</div>
+
+		<h1>Join the Community</h1>
+
+		<!-- action attribute should NOT be specified with angular controlling the form!
+		action="actions/signup.php" -->
+		<form method="post" class="form-horizontal" name="form"
+			novalidate
+      		data-ng-submit="signup(credentials);">
+
+			<div class="form-group">
+				<div id="invalidemail" class="pull-right form-error" data-ng-show="form.email.$error.email">
+					Invalid e-Mail.
+				</div>
+				<label for="usr">E-mail: <span>*</span></label>
+				<input id="usr" type="email" name="email" class="form-control"
+					required
+					data-ng-model="credentials.email">
+			</div>
+			<div class="form-group">
+				<label for="usr">First Name:</label>
+				<input id="usr" type="text" name="firstname" class="form-control"
+					data-ng-model="credentials.firstname">
+			</div>
+			<div class="form-group">
+				<label for="usr">Last Name:</label>
+				<input id="usr" type="text" name="lastname" class="form-control"
+					data-ng-model="credentials.lastname">
+			</div>
+			<div class="form-group">
+				<label for="usr">Nick Name: <span>*</span></label>
+				<input id="usr" type="text" name="nickname" class="form-control"
+					required
+					data-ng-model="credentials.nickname">
+			</div>
+
+			<div class="form-group">
+				<label for="pwd">Password: <span>*</span></label>
+				<input id="pwd" type="password" name="password" class="form-control"
+					required
+					data-ng-model="credentials.password">
+			</div>
+			<div class="form-group">
+				<div id="passwordmismatch" class="pull-right form-error" data-ng-show="credentials.password !== credentials.retypepassword">
+					Passwords are not matching.
+				</div>
+				<label for="pwd">Retype Password: <span>*</span></label>
+				<input id="pwd" type="password" name="retypepassword" class="form-control"
+					required
+					data-ng-model="credentials.retypepassword">
+			</div>
+
+			<div class="form-group">
+				<div class="pull-right legend">
+					<span>* required fields</span>
+				</div>
+				<input type="submit" id="submitbutton" data-ng-disabled="form.$invalid || credentials.password !== credentials.retypepassword" class="btn btn-default" value=" Signup " />
+			</div>
+
+		</form>
+
+</div>
+</div>
+</div>
+</div>

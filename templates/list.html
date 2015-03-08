@@ -1,0 +1,48 @@
+<div id="list" class="page container-fluid">
+<div class="row">
+	<div class="col-xs-12">
+
+		<div data-ng-show="error.status" class="error_msg" style="text-align:center;width:100%;">
+			<span class="label label-danger">{{error.status}} Error</span>
+			{{error.msg}}
+		</div>
+
+		<ul class="userlist">
+		<li id="user-{{user.userid}}" class="userlist_item clearfix" data-ng-repeat="user in users | filter: listpage.searchQuery">
+
+			<a href="#/profile/{{user.userid}}">
+				<img class="avatarimg" data-ng-src="./images/{{user.avatar}}" alt="" />
+			</a>
+
+			<div class="userlist_text">
+
+				<div class="userlist_name">
+					{{user.first_name}} {{user.last_name}}
+				</div>
+
+				<div class="userlist_thingcount">
+					{{user.count}} things
+				</div>
+
+				<div class="more_link">
+					<a href="#/profile/{{user.userid}}">view things</a>
+				</div>
+
+			</div>
+
+			<div class="thing" data-ng-repeat="thing in user.things">
+
+				<a href="#/profile/{{user.userid}}">
+					<div href="#/thing/{{thing.id}}" class="thing_img" style="background-image:url(images/{{thing.thumb_medium}});">
+
+					</div>
+				</a>
+
+			</div>
+
+		</li>
+		</ul>
+
+	</div>
+</div>
+</div>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+	<title>User Manual - COMP6205, Jonas Oppenlaender</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="User manual for the course module COMP6205 submitted in early December.">
+	<meta name="keywords" content="web development, assignment, project">
+	<meta name="author" content="J. Oppenlaender">
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+
+	<!-- Bootstrap core CSS -->
+	<link href="./css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+
+<style type="text/css">
+/*!
+ * Bootstrap Docs (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under the Creative Commons Attribution 3.0 Unported License. For
+ * details, see http://creativecommons.org/licenses/by/3.0/.
+ */
+.bs-callout{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-radius:3px}.bs-callout h4{margin-top:0;margin-bottom:5px}.bs-callout p:last-child{margin-bottom:0}.bs-callout code{border-radius:3px}.bs-callout+.bs-callout{margin-top:-5px}.bs-callout-danger{border-left-color:#d9534f}.bs-callout-danger h4{color:#d9534f}.bs-callout-warning{border-left-color:#f0ad4e}.bs-callout-warning h4{color:#f0ad4e}.bs-callout-info{border-left-color:#5bc0de}.bs-callout-info h4{color:#5bc0de}
+
+/*****************/
+/* custom styles */
+/*****************/
+table{
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+table, td, th{
+	border: 1px solid gray;
+}
+td,th{
+	padding:0px;
+}
+h2{
+	margin-top:40px;
+	margin-bottom:20px;
+	border-bottom:1px solid #DDDDDD;
+}
+#personal_details{
+	margin:10px 0 10px 0;
+}
+#skills_table th.skill{
+	min-width:80px;
+	text-align:center;
+}
+	#skills_table th{
+		background-color:#EEEEEE;
+	}
+	#skills_table th,td{
+		padding:5px;
+	}
+	#skills_table td{
+		text-align:center;
+	}
+	#skills_table td.f{
+		text-align:left;
+	}
+	#skills_table .mark{
+		background-color:#5A9BD5;
+		font-family: 'Glyphicons Halflings';
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+	}
+		#skills_table .sarea{
+			background-color:#D55A9B;
+		}
+		#skills_table td.mark:before {
+			content: "\e013";
+		}
+#task_list ul li{
+	margin-bottom:0px;
+}
+.back-to-top-link{
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+	color:#CCCCCC;
+	text-decoration:none;
+}
+#gantt{
+	max-width:100%;
+}
+h2 i{
+	font-size:76%;
+	color:#888888;
+}
+.txt_intro{
+	margin-bottom:1em;
+}
+.user_story.panel{
+	background-color:#FAFAFA;
+}
+	.user_story .acceptancecriteria{
+		font-size:0.8em;
+	}
+.bold{font-weight:bold;}
+.gray{color:#888888;}
+.page_thumb{
+	text-decoration:none;
+}
+	.page_thumb img{
+		width:200px;
+		height:auto;
+	}
+.caption{
+	font-size:0.9em;
+	font-style: italic;
+	text-align:center;
+	margin-left:-20%;
+	margin-bottom:1em;
+	margin-top:0.5em;
+}
+.ulspacer{margin-top:0.7em;}
+#sidebar{
+	padding-left:0px;
+}
+	#sidebar .sidebar_headline{
+		position: relative;
+		display: block;
+		padding: 10px 10px;
+		text-decoration: none;
+		font-weight:bold;
+	}
+	#sidebar li > a{
+		padding: 10px 10px;
+	}
+	#sidebar .btt{
+		margin-top:5px;
+	}
+	#sidebar .back-to-top-link{
+		padding-left:10px;
+	}
+.hilite{
+	color:#101030; /*#5A9BD5;*/
+	background-color:#F0F0FF;
+}
+img{
+	max-width:100%;
+	height:auto;
+}
+#footer{
+	margin:30px 0 15px 0;
+	padding-left:0px;
+	border-top:1px solid #AAAAAA;
+}
+li.active,
+li.active:hover,
+li.active:focus{
+	border-left:4px solid #AAAAFF;
+	background-color:#F7F7FF;
+}
+/* Fragment Highlighter */
+.highlighted{
+	background-color: #ff9 !important;
+}
+/* scrollspy */
+body{
+	position: relative;
+	height:100%;
+}
+.wrapper{
+	max-width:800px;
+}
+</style>
+
+
+
+<!--videojs html5 video player-->
+<link href="js/videojs/video-js.css" rel="stylesheet" type="text/css">
+<script src="js/videojs/video.custom.js" type="text/javascript"></script>
+<script type="text/javascript">
+videojs.options.flash.swf = "js/videojs/video-js.swf";
+</script>
+
+
+<style type="text/css">
+
+/*center videojs play button*/
+/*based on http://coolestguidesontheplanet.com/videodrome/videojs/play.php*/
+.vjs-default-skin .vjs-big-play-button {
+	left: 42%;
+	top: 40%;
+}
+@media only screen and (max-width:399px) {
+	.vjs-default-skin .vjs-big-play-button {left:25%;top:25%;}
+}
+@media only screen and (min-width:400px) and (max-width:599px) {
+	.vjs-default-skin .vjs-big-play-button {left:30%;top:35%;}
+}
+@media only screen and (min-width:600px) and (max-width:768px) {
+	.vjs-default-skin .vjs-big-play-button {left:25%;top:28%;font-size:6em;}
+}
+
+/*Making VideoJS videos scale in all browsers, tablets and phones for responsive design*/
+/*http://coolestguidesontheplanet.com/videodrome/videojs/*/
+.video-js {padding-top: 70.25%}
+.vjs-fullscreen {padding-top: 0px}
+
+</style>
+
+
+</head>
+<body data-spy="scroll" data-target=".target_nav" data-offset="20">
+
+<!--
+
+Your user manual should explain and illustrate the user stories you completed.  The intended audience for this manual are the users of your web application, so the manual should cover what the web application allows them to achieve, and how they can use it, using clear and helpful instructions supported with appropriate illustrations or animations.
+
+-->
+
+
+<div class="container-fluid">
+
+<div class="row">
+
+	<div id="sidebar" class="col-md-2 hidden-xs hidden-sm">
+
+		<div class="target_nav hidden-print hidden-xs affix">
+
+			<ul class="nav bs-docs-sidenav">
+
+				<li class="sidebar_headline">
+					HOW TO
+				</li>
+				<li>
+					<a href="#signup">Sign up</a>
+				</li>
+				<li>
+					<a href="#login">Log In</a>
+				</li>
+				<li>
+					<a href="#explore">Explore</a>
+				</li>
+				<li>
+					<a href="#upload">Upload</a>
+				</li>
+				<li>
+					<a href="#edit-things">Edit things</a>
+				</li>
+				<li>
+					<a href="#reorder-things">Re-order things</a>
+				</li>
+				<li>
+					<a href="#search">Search</a>
+				</li>
+				<li>
+					<a href="#logout">Log out</a>
+				</li>
+
+			</ul>
+
+			<div class="btt">
+				<a class="back-to-top-link" href="#top">
+					<i class="glyphicon glyphicon-chevron-up"></i> Back to top
+				</a>
+			</div>
+
+          </div>
+
+	</div>
+
+	<div id="content" class="col-xs-12 col-md-10">
+
+		<h1>Welcome to the Minimalist Network!</h1>
+
+		<div>
+			We have assembled a few instructions and videos to help you along the way. Let's get started!
+		</div>
+
+
+		<h2 id="signup">How to sign up</h2>
+
+			Go to the signup page and enter your details. Make sure to enter all required fields (marked with a red asterisk). You can edit your profile after signing up.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent vjs-fullscreen">
+					<video id="signup_video" class="video-js vjs-default-skin" controls preload="none"
+					width="800" height="565"
+					poster="videos/screenshots/all.jpg"
+					data-setup="{}">
+					<source src="videos/signup.mp4" type='video/mp4' />
+					<source src="videos/webm/signup.webm" type='video/webm' />
+					<source src="videos/ogv/signup.ogv" type='video/ogg' />
+					<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+					</video>
+				</div>
+				</div>
+
+			</div>
+
+
+
+		<h2 id="login">Log in</h2>
+
+			Go to the login page. Enter your email address and password. You will be redirected to your profile after log in.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="login_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/login.mp4" type='video/mp4' />
+				<source src="videos/webm/login.webm" type='video/webm' />
+				<source src="videos/ogv/login.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+
+		<h2 id="explore">Explore</h2>
+
+			Get inspired by other members! You can explore the profiles and possessions of other members.
+			Clicking the "Explore" link in the navigation menu will take you to the member list.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="explore_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/explore.mp4" type='video/mp4' />
+				<source src="videos/webm/explore.webm" type='video/webm' />
+				<source src="videos/ogv/explore.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+
+		<h2 id="upload">Upload</h2>
+
+			First, log in to your account.
+			Then go to the upload page.
+			Images of your possessions can be uploaded either by clicking the upload box or by dragging images onto the box.
+			You can upload multiple images at once.
+			The upload will start immediately.
+			Once finished, visit your profile to see the uploaded images.
+			<br />
+			The newest things will show first on the member list.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="upload_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/upload.mp4" type='video/mp4' />
+				<source src="videos/webm/upload.webm" type='video/webm' />
+				<source src="videos/ogv/upload.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+
+		<h2 id="edit-things">Edit things</h2>
+
+			First, log into your account.
+			Next, go to your profile page.
+			Click the edit icon in the upper right corner of a thing to edit it.
+			You can change the title and description. You can also specify if the thing is a container with the checkbox.
+			Just click the save button to finalise your edit.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="edit-thing_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/edit-thing.mp4" type='video/mp4' />
+				<source src="videos/webm/edit-thing.webm" type='video/webm' />
+				<source src="videos/ogv/edit-thing.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+
+		<h2 id="reorder-things">Re-order things</h2>
+
+			First, log into your account and go to your profile page.
+			The things on your profile can be re-ordered via drag and drop.
+			The order will be saved automatically.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="re-order_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/re-order.mp4" type='video/mp4' />
+				<source src="videos/webm/re-order.webm" type='video/webm' />
+				<source src="videos/ogv/re-order.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+
+
+		<h2 id="search">Search</h2>
+
+			Searching other members is easy! Just type in the search bar at the top of the member list.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="search_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/search.mp4" type='video/mp4' />
+				<source src="videos/webm/search.webm" type='video/webm' />
+				<source src="videos/ogv/search.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+		<h2 id="logout">Log out</h2>
+
+			Logging out is simple. Just click the logout link in the navigation menu at the top right.
+
+			<div class="bs-callout bs-callout-info clearfix">
+
+				<div class="wrapper">
+				<div class="videocontent">
+				<video id="logout_video" class="video-js vjs-default-skin" controls preload="none"
+				width="800" height="565"
+				poster="videos/screenshots/all.jpg"
+				data-setup="{}">
+				<source src="videos/logout.mp4" type='video/mp4' />
+				<source src="videos/webm/logout.webm" type='video/webm' />
+				<source src="videos/ogv/logout.ogv" type='video/ogg' />
+				<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+				</video>
+				</div>
+				</div>
+
+			</div>
+
+
+		<footer>
+			<p id="footer">
+				<a class="back-to-top-link" href="#top"><i class="glyphicon glyphicon-chevron-up"></i> Back to Top</a>
+			</p>
+		</footer>
+
+	</div><!--col-->
+
+</div><!--row-->
+
+</div><!--containerfluid-->
+
+
+
+<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="./js/bootstrap.min.scrollspy.js"></script>
+
+<script type="text/javascript"><!--
+var ref_counter = 0;
+$(document).ready(function(){
+
+	/* highlight last navbar item when bottom is reached */
+	/* Nick Craver 2010 : http://stackoverflow.com/a/3898152/426266 */
+	$(window).scroll(function(){
+
+		//console.log( 'res: '+($(document).height() - $(window).height() - $(window).scrollTop()) );
+		//console.log( ' ' );
+
+	   if(Math.abs($(document).height() - $(window).height() - $(window).scrollTop()) <= 10) {
+		$('.bs-docs-sidenav li').removeClass('active');
+		$('.bs-docs-sidenav li:last').addClass('active');
+	   }
+	});
+
+    //the w3c validator does not allow attributes to be non-numeric
+    //but width=auto and height=auto is required to make the videos responsive
+    $.each($(video), function (index, element) {
+        $(element).attr('width',  'auto');
+        $(element).attr('height', 'auto');
+    });
+
+});
+//-->
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+	<title>Technical Manual - COMP6205, Jonas Oppenlaender</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Technical manual for the course module COMP6205 submitted in early December.">
+	<meta name="keywords" content="web development, assignment, project">
+	<meta name="author" content="J. Oppenlaender">
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+
+	<!-- Bootstrap core CSS -->
+	<link href="./css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+	<link href="./css/colorbox.css" type="text/css" rel="stylesheet">
+
+	<!-- prism syntax highlighting -->
+	<link href="./css/prism-custom.css" type="text/css" rel="stylesheet">
+
+
+<style type="text/css">
+/*!
+ * Bootstrap Docs (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under the Creative Commons Attribution 3.0 Unported License. For
+ * details, see http://creativecommons.org/licenses/by/3.0/.
+ */
+.bs-callout{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-radius:3px}.bs-callout h4{margin-top:0;margin-bottom:5px}.bs-callout p:last-child{margin-bottom:0}.bs-callout code{border-radius:3px}.bs-callout+.bs-callout{margin-top:-5px}.bs-callout-danger{border-left-color:#d9534f}.bs-callout-danger h4{color:#d9534f}.bs-callout-warning{border-left-color:#f0ad4e}.bs-callout-warning h4{color:#f0ad4e}.bs-callout-info{border-left-color:#5bc0de}.bs-callout-info h4{color:#5bc0de}
+
+/*****************/
+/* custom styles */
+/*****************/
+body{
+	line-height:170%;
+}
+
+@media (min-width:769px) {
+	#db-design-img{
+		max-width:750px;
+	}
+}
+
+.normalfont{
+	font-size:14px;
+	text-decoration:none;
+}
+/*
+.externallink{color:#10AA10;}
+*/
+table{
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+table, td, th{
+	border: 1px solid gray;
+}
+td, th{
+	padding:5px;
+}
+h2{
+	margin-top:40px;
+	margin-bottom:20px;
+	border-bottom:1px solid #DDDDDD;
+}
+	h3{
+		margin-top:30px;
+	}
+	h4{
+		margin-top:20px;
+	}
+#personal_details{
+	margin:10px 0 10px 0;
+}
+#task_list ul li{
+	margin-bottom:0px;
+}
+.back-to-top-link{
+	font-size:100%;
+	margin:0px;
+	padding:0px;
+	color:#CCCCCC;
+	text-decoration:none;
+}
+h2 i{
+	font-size:76%;
+	color:#888888;
+}
+.txt_intro{
+	margin-bottom:1em;
+}
+.user_story.panel{
+	background-color:#FAFAFA;
+}
+	.user_story .acceptancecriteria{
+		font-size:0.8em;
+	}
+.bold{font-weight:bold;}
+.gray{color:#888888;}
+.page_thumb{
+	text-decoration:none;
+}
+	.page_thumb img{
+		width:200px;
+		height:auto;
+	}
+.caption{
+	font-size:0.9em;
+	font-style:italic;
+	text-align:center;
+	/*margin-left:-10%;*/
+	margin-bottom:1em;
+	margin-top:0.5em;
+}
+.caption-img{
+	border:1px solid #AAAAAA;
+}
+.ulspacer{margin-top:0.7em;}
+#sidebar{
+	padding-left:0px;
+}
+	#sidebar .sidebar_headline{
+		position: relative;
+		display: block;
+		padding: 10px 10px;
+		text-decoration: none;
+		font-weight:bold;
+	}
+	#sidebar li > a{
+		padding: 10px 10px;
+	}
+	#sidebar .btt{
+		margin-top:5px;
+	}
+	#sidebar .back-to-top-link{
+		padding-left:10px;
+	}
+	#sidebar .back-to-top-link:hover{
+		color:#AAFFAA;
+	}
+.hilite{
+	color:#101030; /*#5A9BD5;*/
+	background-color:#F0F0FF;
+}
+img{
+	max-width:100%;
+	height:auto;
+}
+#footer{
+	margin:30px 0 15px 0;
+	padding-left:0px;
+	border-top:1px solid #AAAAAA;
+}
+li.active,
+li.active:hover,
+li.active:focus{
+	border-left:4px solid #AAFFAA;
+	background-color:#F7F7FF;
+}
+/* Fragment Highlighter */
+.highlighted{
+	background-color: #ff9 !important;
+}
+/* scrollspy */
+body{
+	position: relative;
+	height:100%;
+}
+.reference{
+	margin:10px 0px;
+}
+.codefont{font-family:Courier Condensed, Courier New, Courier, Arial, sans-serif;}
+</style>
+
+</head>
+<body data-spy="scroll" data-target=".target_nav" data-offset="20">
+
+<div class="container-fluid">
+
+<div class="row">
+
+	<div id="sidebar" class="col-md-2 hidden-xs hidden-sm">
+
+		<div class="target_nav hidden-print hidden-xs affix">
+
+			<ul class="nav bs-docs-sidenav">
+
+				<li class="sidebar_headline">
+					Technical Manual
+				</li>
+				<li>
+					<a href="#intro">1. Motivation</a>
+				</li>
+				<li>
+					<a href="#install">2. Installation</a>
+				</li>
+				<li>
+					<a href="#architecture">3. Architecture</a>
+				</li>
+				<li>
+					<a href="#application">4. Application</a>
+				</li>
+				<li>
+					<a href="#user-stories">5. User Stories</a>
+				</li>
+				<li>
+					<a href="#testing">6. Testing</a>
+				</li>
+				<li>
+					<a href="#lessons-learned">7. Evaluation</a>
+				</li>
+				<li>
+					<a href="#future-work">8. Future Work</a>
+				</li>
+				<li>
+					<a href="#summary">9. Summary</a>
+				</li>
+				<li>
+					<a href="#references">10. References</a>
+				</li>
+				<li>
+					<a href="#appendix">11. Appendix</a>
+				</li>
+
+			</ul>
+
+			<div class="btt">
+				<a class="back-to-top-link" href="#top">
+					<i class="glyphicon glyphicon-chevron-up"></i> Back to top
+				</a>
+			</div>
+
+          </div>
+
+	</div>
+
+	<div id="content" class="col-xs-12 col-sm-12 col-md-10">
+
+		<h1>Technical Manual</h1>
+
+		<div>
+			Module: COMP6205 - Web Development
+		</div>
+
+		<div id="personal_details">
+			<div id="name">Jonas Oppenlaender</div>
+			<div id="id">Student ID: 27462005</div>
+		</div>
+
+		<noscript>
+				<div>
+					<span class="label label-danger">JavaScript should be enabled for full functionality.</span>
+				</div>
+		</noscript>
+
+
+<h2 id="intro">1. Motivation</h2>
+
+		<p>
+			The AngularJS framework was one of the technologies used to build the IT service portal of <a href="http://www.alstom.com/" class="externallink" title="alstom.com" target="_blank">Alstom</a>.
+			With AngularJS, the web developer can easily add many features that will excite the users (cf. the attractive quality attributes in Kano&#39;s model<sup><a href="#ref-kano">1</a></sup>).
+		</p>
+
+		<p>
+			The concept of creating a social network for minimalists has been on my mind for a while.
+			Before starting this project, I had a very specific idea about how such a website should look and work. My goal was to build everything as a single-page JavaScript application. The application should only be provided with the absolutely necessary information from the backend. My specific vision and the goal of implementing a &quot;traditional&quot; website with a single-page framework have put AngularJS to a test.
+		</p>
+
+<!--
+		<p>
+			My main focus was to learn to create single-page applications with JavaScript libraries / frameworks. I have succeeded to implement four of the five user stories (see also <a href="#lessons-learned">Evaluation and lessons-learned</a>).
+
+			However, a social network is a major undertaking. By using AngularJS as an MVC framework, I have implemented features of several other areas:
+			<ul id="task_list">
+			<li>
+				Creating a responsive user interface with HTML5, CSS3 & JavaScript,
+			</li>
+			<li>
+				Use of an HTML template engine and standard elements such as web controls or widgets,
+			</li>
+			<li>
+				Validation of user input,
+			</li>
+			<li>
+				Asynchronous web server communication and updates,
+			</li>
+			<li>
+				JSON formatted data import & export, and
+			</li>
+			<li>
+				Web patterns and frameworks such as model-view-controller.
+			</li>
+			</ul>
+		</p>
+-->
+
+
+<h2 id="install">2. Installation instuctions</h2>
+
+		The following preconditions should be met before installing the web application.
+
+		<h3 id="preconditions">2.1 Server requirements</h3>
+
+		<p>
+			The website was implemented on an Apache 2.4.10, PHP 5.5.15, MySQL Server 5.6 environment with <a href="https://www.apachefriends.org/" target="_blank" title="apachefriends.org">XAMPP</a> on Windows.
+		</p>
+
+		<div class="bs-callout bs-callout-info clearfix" style="padding:5px 10px">
+			<h4 class="pull-left">Note:</h4>
+			<div class="pull-left" style="margin-left:1em;">
+			The application should be compatible with older versions of Apache, PHP and other operating systems than Windows. However, it is recommended to use at least PHP 5.4+.
+			PHP must be compiled with support for the mysqli extension.
+			To be compatible with mysqli, MySQL must be version 4.1.13 or newer, or 5.0.7 or newer.
+			</div>
+		</div>
+
+		<p>
+			The Apache and MySQL servers should be running on <span class="codefont">localhost</span>.
+			The server needs to allow mime type changes via <span class="codefont">.htaccess</span> files.
+			<br />
+			The following directory (and its sub-directories) needs to be writable by the server: <span class="codefont">www/images/things</span>.
+		</p>
+
+		<h3 id="install-instructions">2.2 Installation</h3>
+
+		<p>
+			The <a href="../www/install/">install</a> folder contains a basic installation script (<span class="codefont">install.php</span>) to set up the database.
+			The installation script assumes a running php and mysql server on <span class="codefont">localhost</span>. The installation script will try to execute under the mysql username &#39;<span class="codefont">root</span>&#39; with no password.
+		</p>
+
+		<p>
+			The installation script will display the commands that are necessary to import the database file. These commands can be executed manually from the shell. Alternatively, the database schema <span class="codefont">install/database.sql</span> can be imported manually in a database administration tool, such as phpMyAdmin.
+			Importing the SQL file will create a new MySQL user &nbsp;<span class="codefont">mdb_user@&#39;localhost&#39;</span> with password &quot;<span class="codefont">BxGswAav6enSTFJP</span>&quot;. These credentials are used by the web application for all database transactions. The credentials are defined in the constructor of the DB class (see <a href="#dbimplementation">3.3 Database Implementation</a>).
+		</p>
+
+
+<h2 id="architecture">3. Website Architecture</h2>
+
+	Section 3.1 gives an overview of the application structure. Section 3.2 and section 3.3 describe the database design and implementation.
+
+	<h3 id="overview">3.1 Overview of Architecture</h3>
+
+		<!--
+		<p>
+			The following table gives an overview of the website&#39;s folder structure:
+		</p>
+		-->
+
+		<table style="margin:10px 0px;">
+		<thead>
+		<tr>
+			<th>Folder</th>
+			<th>Description</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td><a href="../www/app/" target="_blank"><img style="max-width:none" src="./img/folders/app.jpg" alt="app" /></a></td>
+			<td>
+				Main application JavaScript files, split into application (<a href="../www/app/app.js" target="_blank">app.js</a>), controllers (<a href="../www/app/controllers.js" target="_blank">controllers.js</a>), and services (<a href="../www/app/services.js" target="_blank">services.js</a>).<br />
+				<span class="codefont">app/_prod.js</span> is the production-ready (minified) version that includes both the application and the external libraries.<br />
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../www/templates/" target="_blank"><img style="max-width:none" src="./img/folders/templates.jpg" alt="templates" /></a></td>
+			<td>
+				Stores the html templates.
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../www/actions/" target="_blank"><img style="max-width:none" src="./img/folders/actions.jpg" alt="actions" /></a></td>
+			<td>
+				Provides six separate API endpoints for AJAX calls as part of the application&#39;s backend:
+				<ul style="margin-bottom:0px">
+					<li><span class="codefont">edit-thing.php</span> - receives updated information of things from the user profile&#39;s edit dialog</li>
+					<li><span class="codefont">order.php</span> - receives and stores the new order of things when things are re-ordered on the user profile</li>
+					<li><span class="codefont">upload.php</span> - receives, processes and stores image uploads from the <span class="codefont">/#/upload</span>&nbsp; page.</li>
+					<li><span class="codefont">login.php</span> - receives and processes the login credentials from the <span class="codefont">/#/login</span> page.</li>
+					<li><span class="codefont">signup.php</span> - receives and processes the user credentials from the <span class="codefont">/#/signup</span> page.</li>
+					<li><span class="codefont">logout.php</span> - destroys the session in the database, deletes the cookies and returns the user to the homepage.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../www/data/" target="_blank"><img style="max-width:none" src="./img/folders/data.jpg" alt="data" /></a></td>
+			<td>
+				Provides two API endpoints (<a href="../www/data/list.json" target="_blank">list.json</a> and <a href="../www/data/profile.json" target="_blank">profile.json</a>) as part of the backend to send JSON-encoded data to the frontend. These two files are executed by php via a <span id="mime-type">custom mime type declaration</span> in the folder&#39;s <a href="../www/data/.htaccess">.htaccess</a> file.
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../www/inc/" target="_blank"><img style="max-width:none" src="./img/folders/inc.jpg" alt="inc" /></a></td>
+			<td>
+				The <span class="codefont">inc</span> folder contains php files included by other files of the backend.
+				The file <span class="codefont">init_app.php</span> is included in all other backend files to set up environment variables.
+				The file <span class="codefont">functions.php</span> contains common backend functionality.
+				The subfolder <span class="codefont">classes</span> contains the <span class="codefont">Auth</span>, <span class="codefont">Session</span> and <span class="codefont">DB</span> classes.
+			</td>
+		</tr>
+		<tr>
+			<td><a href="../www/css/" target="_blank"><img style="max-width:none" src="./img/folders/css.jpg" alt="css" /></a>
+				<br />
+				<a href="../www/js/" target="_blank"><img style="max-width:none" src="./img/folders/js.jpg" alt="js" /></a></td>
+			<td>
+				Stores the css/sass stylesheets and external JavaScript libraries.
+				<ul>
+					<li><span class="codefont">css/style.scss</span>: main stylesheet (in sass notation)</li>
+					<li><span class="codefont">css/style.css</span>: css stylesheet, translated from sass</li>
+					<li><span class="codefont">css/_prod.css</span>: production-ready css stylesheet</li>
+				</ul>
+			</td>
+		</tr>
+		</tbody>
+		</table>
+
+
+	<h3 id="dbdesign">3.2 Database Design</h3>
+
+		The design of the database was the starting point of the development. MySQL Workbench was used to create the tables and to populate the database with initial information.
+
+		Central to the database are the tables &#39;things&#39; and &#39;users&#39;, with auxiliary tables tieing them together.
+
+		All dates are stored as integer unix timestamps which allows for greater flexibility in the formatting of dates and times.
+
+		<img src="img/database-eer-diagram.jpg" class="img-responsive caption-img" id="db-design-img" alt="Database EER diagram" style="margin:10px auto;">
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Database EER diagram
+		</div>
+
+<!--
+		<p>
+			Indexes were created on the fields of "WHERE" queries to speed up the queries.
+		</p>
+-->
+
+	<h3 id="dbimplementation">3.3 Database Implementation <span class="normalfont">(see <span class="codefont">inc/classes/DB.class.php</span>)</span></h3>
+
+		<p>
+			<!--
+			As of PHP 5.5.0, the <span class="codefont">mysql</span> extension is deprecated<sup><a href="#ref-mysqldeprecated">1</a></sup>.
+			One alternative is <span class="codefont">mysqli</span>, which is advertised as being an improved version of the original PHP MySQL API.
+			-->
+
+			The database class of this web application is an extension of the mysqli class. The constructor of the parent class must be explicitly called to instantiate the DB object<sup><a href="#ref-mysqliconstructor">2</a></sup>.
+		</p>
+
+<pre data-loc="inc/classes/DB.class.php"><code class="language-php">class DB extends mysqli
+{
+    private $connected = false;
+    private static $connection = false;
+
+    private function __construct()
+    {
+        parent::__construct("localhost", "mdb_user", "BxGswAav6enSTFJP", "minimalism", 3306);
+        self::$connection = $this;
+        if (self::$connection->connect_errno){
+            die("Failed to connect to MySQL: (" . self::$connection->connect_errno . ") " . self::$connection->connect_error);
+        }
+        else
+        {
+            $this->connected = true;
+        }
+        return;
+    }
+    //...
+
+</code></pre>
+
+		<p>
+			The database instance can be requested from any part of the backend by calling the static method <span class="codefont">getInstance()</span> of the <span class="codefont">DB</span> class.
+		</p>
+
+<pre data-loc="inc/classes/DB.class.php"><code class="language-php">public static function getInstance()
+{
+    if (!self::$connection) self::$connection = new DB;
+    return self::$connection;
+}
+</code></pre>
+<pre data-loc="(in any php file)"><code class="language-php">$mysqli = DB::getInstance();</code></pre>
+
+		<p>
+			The following section describes the three main parts of the application (app, controllers and services).
+		</p>
+
+
+<h2 id="application">4. Application</h2>
+
+		<p>
+			The single entry point to the application is the <span class="codefont">index.html</span> file in the webroot directory (<span class="codefont">www/</span>).
+		</p>
+
+		<img src="img/screenshots/homepage.jpg" alt="" class="img-responsive caption-img" />
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Home page when accessing index.html
+		</div>
+
+		<div class="bs-callout bs-callout-info clearfix" style="padding:5px 10px">
+			<h4 class="pull-left">Note:</h4>
+			<div class="pull-left" style="margin-left:1em;">
+			The seven sample users follow the same credential pattern: email <span class="codefont">&lt;firstname&gt;@&lt;lastname&gt;.com</span>, password <span class="codefont">&lt;firstname&gt;&lt;lastname&gt;</span>.
+			<br />
+			For example, to log in as user 1, use the email address <span class="codefont">john@doe.com</span> with password <span class="codefont">johndoe</span>.
+			</div>
+		</div>
+
+
+	<h3 id="main-app">4.1 Main application <span class="normalfont">(see <a href="../www/app/app.js" target="_blank">app.js</a>)</span></h3>
+
+		<p>
+			All AngularJS code has been written in a format that withstands code minifcation of function arguments<sup><a href="#ref-minifaction">3</a></sup>.
+		</p>
+
+		<span class="codefont">app.js</span> initializes and configures the AngularJS application and its routes.
+
+		Custom and Angular-internal modules are injected into the application.
+
+		An application-wide constant (<span class="codefont">AUTH_EVENTS</span>) is defined that is used for authentication events<sup><a href="#ref-authconstant">4</a></sup>.
+
+		The heart of <span class="codefont">app.js</span> are the configuration (<span class="codefont">minimalistApp.config</span>) and execution (<span class="codefont">minimalistApp.run</span>) of the application.
+
+	<h4 id="router">4.1.1 Router</h4>
+
+		When using a router, the controllers should not be bound to the templates&#39; markup. Otherwise, the controllers would be executed twice when the route is changed.
+
+		<pre data-loc="minimalistApp.config in app/app.js"><code class="language-javascript">minimalistApp.config(['$routeProvider', function ($routeProvider) {
+	//...
+    $routeProvider.
+        //...
+        when('/profile/:userId', {
+            title: 'Profile',
+            templateUrl: 'templates/profile.html',
+            controller: 'ProfileCtrl'
+        }).
+        //...
+        //unknown route -> redirect to homepage
+        otherwise({
+            redirectTo: '/'
+        });
+}]);</code></pre>
+
+		<p>
+		To change the title for each page, a title property has been added to each route.
+		This title property can later be accessed to set the page title<sup><a href="#ref-koreska">5</a></sup>.
+		<br />
+		Angular has a DOM-like structure of scopes. The main element is called the <span class="codefont">$rootScope</span>. The information and events of the rootScope are inherited by its child scopes. Changes to the rootScope propagate throughout the entire hierachry of scopes. A change to the title property of the rootScope will therefore affect the model linked to the title element of the view (in <span class="codefont">index.html</span>).
+		</p>
+
+		<pre data-loc="minimalistApp.run in app/app.js"><code class="language-javascript">minimalistApp.run(['$location', '$http', '$rootScope', 'AuthService', function ($location, $http, $rootScope, AuthService) {
+	//...
+	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+		if (current.$$route.title) {
+			$rootScope.title = current.$$route.title;
+		}
+	});
+	//...</code></pre>
+
+		<pre data-loc="index.html"><code class="language-markup">&lt;title data-ng-bind="title"&gt;Minimalist Social Network&lt;/title&gt;</code></pre>
+
+		The rootScope is also used to check if a user is logged in.
+		The upload page is the only restricted part of the website. If the user is not logged in, he or she will get redirected to the login page (<span class="codefont">#/login</span>).
+
+		<pre data-loc="minimalistApp.run in app/app.js"><code class="language-javascript">	//...
+		$rootScope.$on('$routeChangeStart', function (event, next, current) {
+		// redirect to login page if not logged in
+		if ($location.path() === '/upload' && !$rootScope.currentUser) {
+			$location.path('/login');
+		}
+	});
+	//...</code></pre>
+
+
+	<p>
+		One of the main reasons to implement server-side authentication instead of merely cookie-based authentication is the ability to store a securitytoken in the <span class="codefont">user_sessions</span> table. This token is composed of random characters and is created for each user and for each new session (see the <span class="codefont">CreateToken</span> and <span class="codefont">SetToken</span> methods of the <span class="codefont">Session</span> class in <span class="codefont">inc/classes/Session.class.php</span>).
+		The security token is an added security feature that will be used on all form submissions to check the authenticity of the requests.
+	</p>
+
+	<p>
+		AngularJS allows to define a cross-site-request-forgery security token. This token is added to the request header when submitting forms in the application. The backend would then need to check the authenticity of the token by comparing it to the token stored in the user&#39;s session.
+	</p>
+
+	<pre data-loc="minimalistApp.run in app/app.js"><code class="language-javascript">	//...
+	//read the xsrf token from the cookie and tell the application to use it in all requests
+    $http.defaults.headers.post['X-XSRF-TOKEN'] = $cookies.csrftoken;
+    //...</code></pre>
+
+
+		<pre data-loc="inc/classes/Auth.class.php"><code class="language-php">	//Set security token as XSRF-TOKEN cookie for AngularJS
+	setcookie('csrftoken',
+	    Session::GetToken(),
+	    isset($_POST[self::REMEMBER]) ? time() + self::SESSION_TIME : null,
+		'/'
+	);</code></pre>
+
+
+
+	<h3 id="controllers">4.2 Controllers and directives <span class="normalfont">(see <a href="../www/app/controllers.js" target="_blank">controllers.js</a>)</span></h3>
+
+		<p>
+			The controllers and directives contain the functionality of the application.
+			Each page has a controller that clears the console and outputs the controller name to the console.
+		</p>
+
+		<p>
+			<span class="codefont">BodyController</span> is attached to the body element of the html page.
+			An object (<span class="codefont">$scope.listpage</span>) is defined that is used on the <span class="codefont">#/list</span> page&#39;s search box in the navigation menu.
+			Templates that are included with &quot;<span class="codefont">ng-include</span>&quot;, like the navbar, cannot interact with other controllers on the same hierarchical level of scopes.
+			The BodyController is the parent scope of the navbar.
+			If the <span class="codefont">listpage</span> object is not defined in the navbar&#39;s parent scope, the navbar would create its own scope and the search box would not work<sup><a href="#ref-angularngincludescope">6</a></sup>.
+		</p>
+
+		<p>
+			The <span class="codefont">NavbarController</span> listens for authentication events to control the visibility of navbar items.
+    	</p>
+
+		    <pre data-loc="NavbarController in app/controllers.js"><code class="language-javascript">	//EVENTS
+    //listen for authentification broadcast messages
+    $scope.$on(AUTH_EVENTS.loginSuccess, function (event, data) {
+        console.log('- NavbarController receives loginsuccess');
+        $scope.isAuthenticated = true;
+        $scope.currentUser = data;
+    });
+    //...</code></pre>
+
+		<p>
+			The navbar will also highlight the active menu item based on the active route<sup><a href="#ref-navbarswitch">7</a></sup>.
+		</p>
+
+			<pre data-loc="NavbarController in app/controllers.js"><code class="language-javascript">	//...
+	$scope.isActive = function (viewLocation) {
+		return viewLocation === $location.path();
+	};
+	//...</code></pre>
+
+
+		<div>
+			<span class="codefont">ListCtrl</span>&#39;s main function is to get the list of users from the server (with a HTTP GET request to <span class="codefont">data/list.json</span>).
+		</div>
+		<div>
+			<span class="codefont">LoginCtrl</span> resets the error message when the login page is accessed.
+		</div>
+		<div>
+			<span class="codefont">LoginFormController</span> is described in more detail in the <a href="#auth">section 4.3.1</a> below.
+		</div>
+		<div>
+			The <span class="codefont">SignupCtrl</span> is similar to the <span class="codefont">LoginFormController</span> and is not described in this manual. Instead, the form validation is described in sections <a href="#form-validation">4.3.2</a> and <a href="#serverside-validation">4.3.3</a>.
+		</div>
+		<div>
+			The <span class="codefont">ProfileCtrl</span> loads the user details and things from <span class="codefont">data/profile.json</span>.
+			The controller also controls the edit dialog (see <a href="#edit-thing">section 5.2</a>).
+		</div>
+		<div>
+			The <span class="codefont">packery</span> and <span class="codefont">dropzone</span> modules implement the packery gallery and dropzone upload form respectively (see sections <a href="#re-order">5.1</a> and <a href="#upload-thing">5.3</a>).
+		</div>
+
+
+
+	<h3 id="services">4.3 Services <span class="normalfont">(see <a href="../www/app/services.js" target="_blank">services.js</a>)</span></h3>
+
+		Services are a way to pass information between controllers and to interact with the backend.
+
+		The Minimalist Network application implements three services: one to store the user&#39;s session and credentials (<span class="codefont">Session</span> service), one to authenticate the user (<span class="codefont">AuthService</span> service) and one to send and receive the information of the signup form (<span class="codefont">SignupService</span>).
+
+		The authentication process is described in the following section. The signup process uses similar technologies. The client-side and server-side form field validation of the signup process is described in <a href="#form-validation">section 4.3.2</a> and <a href="#serverside-validation">section 4.3.3</a> respectively.
+
+
+	<h4 id="auth">4.3.1 Authentication <span class="normalfont">(<span class="codefont">AuthService</span>)</span></h4>
+
+		<p>
+			The login page (see <span class="codefont">templates/login.html</span>) asks for the email and password of the user.
+			The form fields are bound to a model called <span class="codefont">credentials</span>.
+			On submit of the form, the credentials are passed to the <span class="codefont">LoginFormController</span>&#39;s <span class="codefont">loginSubmit</span> method.
+		</p>
+
+		<img src="img/screenshots/login.jpg" alt="" class="img-responsive caption-img" />
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Login form
+		</div>
+
+		<pre data-loc="templates/login.html"><code class="language-markup">&lt;form method="post" class="form-horizontal" novalidate data-ng-controller="LoginFormController" data-ng-submit="loginSubmit(credentials);"&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="em"&gt;E-mail:&lt;/label&gt;
+		&lt;input id="em" type="text" name="email" class="form-control" data-ng-model="credentials.email"&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;label for="pwd"&gt;Password:&lt;/label&gt;
+		&lt;input id="pwd" type="password" name="password" class="form-control" data-ng-model="credentials.password"&gt;
+	&lt;/div&gt;
+	&lt;div class="form-group"&gt;
+		&lt;input type="submit" class="btn btn-default" value=" Login " /&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+
+		<p>
+			The LoginFormController will pass the credentials to the <span class="codefont">AuthService</span>. The <span class="codefont">AuthService</span> will send the credentials to the <span class="codefont">actions/login.php</span> with an http POST request. <span class="codefont">AuthService</span> will create a session and return the received data on success.
+		</p>
+
+		<p>
+		AngularJS sends the request payload in an unusual way<sup><a href="#ref-brant">8</a></sup>.
+		The JSON payload data cannot be retrieved with the <span class="codefont">$_POST</span> variable in PHP. It must be read from the input stream. The PHP stream wrapper was used in this application to populate the <span class="codefont">$_POST</span> variables:
+		</p>
+
+		<pre data-loc="inc/classes/Auth.class.php"><code class="language-php">if(empty($_POST['email']) && empty($_POST['password'])){
+	$postdata = file_get_contents("php://input");
+	$request = json_decode($postdata);
+	$_POST['email'] = (isset($request->email) ? : $request->email : false);
+	$_POST['password'] = (isset($request->password) ? $request->password : false);
+	unset($postdata, $request);
+}</code></pre>
+
+		<p>
+			AngularJS&#39; http requests are asynchronous.
+			The recommended way of authenticating users in AngularJS is to use a (deferrred) promise that is returned immediately and only later resolved or rejected. An example of this method can be found in the <span class="codefont">loginRequired</span> function of <span class="codefont">app/app.js</span>.
+		</p>
+
+		<p>
+			This application uses a sparsely AngularJS feature to authenticate users. Using <span class="codefont">$http.success()</span> is the documented way to use the $http service and to register callbacks. But this way will not return a promise. The <span class="codefont">$http</span> provider will itself return a promise.
+
+			The promise is returned immediately. The promise is later resolved with the <span class="codefont">$http.then()</span> method and received with another <span class="codefont">then()</span> method in the <span class="codefont">AuthService</span>.
+
+			This chain of promises implemented in this application could not be realised by registering the <span class="codefont">$http.success()</span> callback<sup><a href="#ref-http-promises">9</a></sup>.
+		</p>
+
+		<pre data-loc="AuthService in app/services.js"><code class="language-javascript">	AuthService.login = function (credentials) {
+		var authurl = 'actions/login.php';
+		//...
+		return $http.
+			post(authurl, credentials).
+				then(function (res) {
+					//the userid arrives as a string
+					if (res.data.userid !== undefined) {
+						res.data.userid = parseInt(res.data.userid, 10);
+					}
+					Session.create(res.data.sessionid, res.data.userid, res.data.nickname, res.data.securitytoken);
+					currentUser = Session.getUser();
+					return currentUser;
+			});
+	};
+	//...</code></pre>
+
+		<pre data-loc="app/services.js"><code class="language-javascript">AuthService.login = function (credentials) {
+	return $http.
+		post('actions/login.php', credentials).
+			then(function (res) {
+				Session.create(res.data.sessionid, res.data.userid, res.data.nickname, res.data.securitytoken);
+				return res.data;
+	});
+};</code></pre>
+
+		<div>
+			<span class="codefont">AuthService.login</span> is called from two locations:
+			<ul>
+				<li>
+					<span class="codefont">minimalistApp.run</span> (in <span class="codefont">app/app.js</span>)<br />
+					This call is issued on each refresh of the html page. In this case, the <span class="codefont">AuthService</span> is called with <span class="codefont">null</span> as user credentials. This will cause the Auth class (inc/classes/Auth.class.php) to try to authenticate the user with the session cookie (and not with the email and password post variables).
+				</li>
+				<li>
+					<span class="codefont">LoginFormController</span> (in <span class="codefont">app/controllers.js</span>)<br />
+					This call is triggered when the login form button is clicked.
+				</li>
+			</ul>
+		</div>
+
+
+	<h4 id="form-validation">4.3.2 Client-side form validation on the signup page <span class="normalfont">(see <span class="codefont">templates/signup.html</span>)</span></h4>
+
+		<p>
+		AngularJS has a variety of built-in functionalities that make the developer&#39;s life easier. Binding models to DOM elements is one such functionality. Form validation is another built-in AngularJS feature. The application can interact with the DOM-embedded models without requiring any controller code.
+		</p>
+
+		<img src="img/screenshots/signup-invalid.jpg" alt="" class="img-responsive caption-img" />
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Signup form with invalid data
+		</div>
+
+		<p>
+		To define a form field as required, the developer only has to add the attribute &quot;required&quot; to the input element. The Signup button will stay deactivated until all required fields are filled in and all other fields are valid.
+		</p>
+		<pre data-loc="templates/signup.html"><code class="language-markup">&lt;input id="usr" type="text" name="nickname" class="form-control" required data-ng-model="credentials.nickname"&gt;</code></pre>
+
+		<p>
+		Specifying the input type "email" will automatically validate the field and check if the entered text is in e-mail format. An error message is shown if the email is not valid.
+		</p>
+		<pre data-loc="templates/signup.html"><code class="language-markup">&lt;div id="invalidemail" class="pull-right form-error" data-ng-show="form.email.$error.email"&gt;Invalid e-Mail.&lt;/div&gt;
+&lt;input id="usr" type="email" name="email" class="form-control" required data-ng-model="credentials.email"&gt;</code></pre>
+
+		<p>
+		The submit button can be deactivated by adding the "(data-)ng-disabled" attribute. Once all fields of the form validate as &quot;truthy&quot;, the button is activated automatically.
+		</p>
+		<pre data-loc="templates/signup.html"><code class="language-markup">&lt;input type="submit" data-ng-disabled="form.$invalid" class="btn btn-default" value=" Signup " /&gt;</code></pre>
+
+
+	<h4 id="serverside-validation">4.3.3 Server-side form validation <span class="normalfont">(see <span class="codefont">templates/signup.html</span>)</span></h4>
+
+		The server-side should perform the same form field validation as the client-side to protect the website from injection of illegal characters and code fragments.
+
+
+		<pre data-loc="actions/signup.php"><code class="language-php">//...
+//password match check
+if($_POST['retypepassword'] !== $_POST['password'])
+{
+	if(!headers_sent()) header($_SERVER["SERVER_PROTOCOL"].' 401 Unauthorized');
+	@json_header();
+	echo json_encode(array('error' => 'Password mismatch'));
+	die;
+}
+
+//check for invalid user name characters
+function NotIsValid($str) {
+    return (1 === preg_match('~[\&lt;\&gt;\"\'\0]+~', $str));
+}
+//output an error message when invalid characters are found
+function invalid_chars_error($field)
+{
+	if(!headers_sent()) header($_SERVER["SERVER_PROTOCOL"].' 400 Bad Request');
+	@json_header();
+	echo json_encode(array('error' => 'Invalid characters in ' . $field . ' detected.'));
+	die;
+}
+if(NotIsValid($email = $_POST['email']))
+{
+	invalid_chars_error('email');
+}
+if(NotIsValid($nickname = $_POST['nickname']))
+{
+	invalid_chars_error('nickname');
+}
+if(NotIsValid($firstname = $_POST['firstname']))
+{
+	invalid_chars_error('first name');
+}
+if(NotIsValid($lastname = $_POST['lastname']))
+{
+	invalid_chars_error('last name');
+}
+//...
+
+</code></pre>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+		<img src="img/screenshots/illegal-chars-2.jpg" alt="" class="img-responsive caption-img" />
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+		<img src="img/screenshots/illegal-chars.jpg" alt="" class="img-responsive caption-img" />
+			</div>
+		</div>
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Illegal characters error message on signup form
+		</div>
+
+
+<h2 id="user-stories">5. User Stories</h2>
+
+	The login and signup processes have already been described above. The following sections describe the implementation of three more user stories.
+
+
+	<h3 id="re-order">5.1 User Story: Re-ordering things <span class="normalfont">(see <a href="../www/app/controllers.js" target="_blank">controllers.js</a> and <span class="codefont">actions/order.php</span>)</span></h3>
+
+		The user can re-arrange the items on the profile (provided that the user is logged in) via drag and drop.
+		PackeryJS is a library that lays out images in a "masonry" gallery<sup><a href="#ref-masonry">9</a></sup>. PackeryJS&#39; Draggabilly plugin allows to make the images draggable. This library has the added bonus that it is touch-enabled, so images can also be re-arranged on mobile devices and tablets.
+
+		<img src="img/screenshots/reorder.jpg" alt="" class="img-responsive caption-img" />
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Re-ordering things on the user profile
+		</div>
+
+		To implement the re-order mechanism, an angular directive for PackeryJS (called <span class="codefont">workspace</span>) had to be created<sup><a href="#ref-packerydirective">10</a></sup>.
+
+		<pre data-loc="app/controllers.js"><code class="language-javascript">angular.module('packery', []).directive('workspace', ['$rootScope', '$http', function ($rootScope, $http) {
+    'use strict';
+    return {
+        constrain: 'A',
+        link: function (scope, element, attrs) {
+
+            var tmp = element; //does not work without this assignment
+
+            //receive the last element event from the loop (itemRepeatDirective)
+            scope.$on('LastThing', function (event, element, attrs) {
+
+                if ($rootScope.packery === undefined || $rootScope.packery === null) {
+
+                    console.log('creating packery gallery');
+
+                    //initialise packery
+                    var packery = new Packery(tmp[0], {
+                        rowHeight: '.module-sizer',
+                        itemSelector: '.thing',
+                        columnWidth: '.module-sizer'
+                    }),
+                        things = {},
+                        i = 0;
+
+                    //make the gallery draggable
+                    angular.forEach(packery.getItemElements(), function (item) {
+
+                        var itemid = item.dataset.id,
+                            draggable = new Draggabilly(item);
+
+                        things[itemid] = i;
+                        i = i + 1; //I prefer "i++;", but Doug Crockford forces me to do otherwise
+
+                        packery.bindDraggabillyEvents(draggable);
+
+                    });
+
+                    packery.layout();
+
+                    //...
+                    </code></pre>
+
+
+		<p>
+			The <span class="codefont">LastThing</span> event is triggered when the Packery module has processed the last thing in the ngRepeat directive.
+			A <span class="codefont">setTimeout</span> is needed to emit this event. This setTimeout can be very small or even zero. This &quot;delay&quot; is necessary for the Packery library to be able to manipulate the DOM<sup><a href="#ref-packerytimeout">11</a></sup>.
+		</p>
+
+		<pre data-loc="app/controllers.js"><code class="language-javascript">if (scope.$last) {
+	setTimeout(function () {
+		scope.$emit('LastThing', element, attrs);
+	}, 1);
+}</code></pre>
+
+		Dragging images will re-arrange the gallery. Resizing the browser window has the same effect.
+
+		Whenever a change is made to the order of things, the <span class="codefont">dragItemPositioned</span> event in the packery directive loops over all images in the gallery and then sends the new sort order to the server.
+
+		<pre data-loc="app/controllers.js"><code class="language-javascript">                    //picture drag events
+                    packery.on('dragItemPositioned', function (pckryInstance, draggedItem) {
+
+                        console.log('reorder-event');
+
+                        things = {}; //reset object
+
+                        //loop through the updated elements to get the new order
+                        angular.forEach(packery.getItemElements(), function (item, key) {
+                            var itemid = item.dataset.id;
+                            things[itemid] = key;
+                        });
+
+                        var console_string = '';
+                        angular.forEach(things, function (item, key) {
+                            console_string += key + ':' + item + ', ';
+                        });
+                        console.log('New Order: ' + console_string.replace(/,$/, ''));
+                        console_string = null;
+
+                        //things now contains an updated internal order
+                        //store this order in the database
+                        $http({
+                            url: 'actions/order.php',
+                            method: 'POST',
+                            params: {
+                                'userid' : '1',
+                                'things' : angular.toJson(things)
+                            }
+                        }).success(function (data) {
+                            if (data === 'OK') {
+                                console.log('order saved');
+                            } else {
+                                console.log('error with re-ordering');
+                            }
+                        });
+
+</code></pre>
+
+		This data is received by <span class="codefont">actions/order.php</span>, which saves the order to the database and replies with a simple &quot;OK&quot; on success.
+
+
+
+	<h3 id="edit-thing">5.2 User Story: Editing things <span class="normalfont">(see <span class="codefont">ProfileCtrl</span> in <a href="../www/app/controllers.js" target="_blank">controllers.js</a>)</span></h3>
+
+		<p>
+			<span class="codefont">ngDialog</span> is a plugin module for AngularJS that allows to create modal dialogs.
+			Logged-in users can edit items on their profile by clicking the edit button in the top right corner of the gallery images.
+		</p>
+
+		<img src="img/screenshots/edit-thing.jpg" alt="" class="img-responsive caption-img" />
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Editing a thing on the user profile
+		</div>
+
+		<p>
+			This button showed unexpected behavior. The icon was not visible in a significant amount of the page loads.
+
+			This may be a result of the combination of Packery gallery and ng-Repeat.
+
+			An adjustment of the <span class="codefont">z-index</span> values and several other CSS modifications did not reliably fix this error.
+
+			To overcome this display problem, a <span class="codefont">bug_fix</span> function had to be created and is called in two places (see <span class="codefont">app/controllers.js</span>). This bug-fix will slow down the page load.
+		</p>
+
+		<pre data-loc="app/controllers.js"><code class="language-javascript">/**
+ * bug fix - make sure that all the edit icon overlays are showing 100% of the time
+ */
+var bug_fix = function () {
+    angular.forEach(angular.element(document.querySelector('#thing-container')).children(), function (item) {
+        //re-set the css 'position' attribute for the edit icon
+        //this will ensure that the icon is showing
+        item.style.position = 'absolute';
+    });
+};
+</code></pre>
+
+
+
+
+	<h3 id="upload-thing">5.3 User Story: Uploading things <span class="normalfont">(see <span class="codefont">dropzone</span> module in <a href="../www/app/controllers.js" target="_blank">controllers.js</a> and <span class="codefont">templates/upload.html</span>)</span></h3>
+
+		<p>
+		A very convient way to upload multiple pictures is via drag-and-drop. Dropzone.js offers this functionality. As with PackeryJS, a directive had to be created to use the dropzone.js library with AngularJS.
+		</p>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<img src="img/screenshots/upload.jpg" alt="" class="img-responsive caption-img" />
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				<img src="img/screenshots/upload-2.jpg" alt="" class="img-responsive caption-img" />
+			</div>
+		</div>
+		<div class="caption">
+			Figure <span class="figure-number"></span>: Uploading things
+		</div>
+
+		<p>
+			Once initialized, Dropzone.js will post files to <span class="codefont">actions/upload.php</span>.
+			This script receives the uploaded files one-by-one and checks them in several sequential steps. The filename is sanitized and the file is moved to its final location in the folder <span class="codefont">images/things/&lt;USERID&gt;</span>, if no errors are found.
+		</p>
+
+		<pre data-loc="actions/upload.php"><code class="language-php">//allowed file extensions
+$extension_whitelist = array("jpg", "jpe", "jpeg", "png", "gif");
+
+// valid characters that are allowed in the upload's filename
+$valid_chars = '\.A-Za-z0-9_\s\!\(\)\+\=\{\}\[\]\'\"\,\~\-';
+
+$upload = @$_FILES['file'] || false;
+
+//validate the upload
+if (!$upload || !isset($upload['name']))
+{
+	$errors[] = "Upload is not valid.";
+}
+elseif (isset($upload["error"]) && $upload["error"] != 0)
+{
+	$errors[] = 'File could not be uploaded.'.
+	"Error: ".(isset($upload_errors[$upload["error"]]) ? htmlspecialchars($upload_errors[$upload["error"]], ENT_QUOTES) : "&lt;unknown error&gt;");
+}
+elseif (!isset($upload["tmp_name"]) || !@is_uploaded_file($upload["tmp_name"]))
+{
+	$errors[] = "Upload unsuccessful. Problem with tmp directory?";
+}
+
+//...
+
+//sanitize the file name + remove any invalid characters that were previously allowed in the filename
+$file_name = trim(preg_replace('/[^'.$valid_chars.']|\.+$/i', "", $upload['name']));
+unset($valid_chars);
+if (strlen($file_name) === 0) //strlen($file_name) > $MAX_FILENAME_LENGTH
+{
+	$errors[] = "Invalid file name";
+}
+//these chars should not be in the html output
+$file_name = str_replace(array("'", "\"", "\\", "/", "(", ")"),	"", $file_name);
+$file_name = trim($file_name);
+
+//filename still valid?
+if(!$file_name)
+{
+	$errors[] = 'Error uploading file.';
+}
+
+if (!preg_match('/\.(' . implode('|', $extension_whitelist) . ')$/i', $file_name))
+{
+	$errors[] = "Extension is not allowed.";
+}
+
+//check if there are errors
+if(!empty($errors))
+{
+	if(!headers_sent()) header($_SERVER["SERVER_PROTOCOL"].' 400 Bad Request');
+	@json_header();
+	echo json_encode($errors);
+	die;
+}
+//upload has passed all security checks
+else
+{
+
+	//make sure that this filename is unique
+	do
+	{
+		$file_name = uniqid().'_'.$file_name; //uniqid() to never overwrite a file
+	}
+	while (file_exists($save_path.'/'.$file_name));
+
+	$new_file = $save_path.'/'.$file_name;
+
+	// Process the file
+	if(!is_dir($save_path))
+	{
+		$errors[] = "Could not save the file.";
+	}
+	else
+	{
+		if (!@move_uploaded_file($upload["tmp_name"], $new_file))
+		{
+			$errors[] = "File could not be saved. (" . htmlspecialchars($new_file) . ")";
+		}
+	}
+
+//...
+
+</code></pre>
+
+		<p>
+			The SimpleImage<sup><a href="#ref-simpleimage">12</a></sup> class will create three differently-sized thumbnails.
+			The thumbnails are stored in the same folder as the original image in the user&#39;s directory in the <span class="codefont">images</span> folder.
+
+			The server will respond with a JSON-encoded object with a list of all the thumbnail locations if the upload was successful. Otherwise, it will output a JSON-encoded error message.
+		</p>
+
+
+
+<h2 id="testing">6. Testing</h2>
+
+	To get experience with testing, two different testing techniques (Jasmine and Protractor) were applied in this project.
+	Karma is another testing tool for JavaScript. Karma is not as well documented as Protractor.
+	Note that Protractor and Karma would usually not be used together<sup><a href="#ref-protractorkarma">13</a></sup>.
+
+	<h3 id="testing-jasmine">6.1 Testing with Jasmine (stand-alone) <span class="normalfont">(see <span class="codefont">test/unit/jasmineSpec.js</span>)</span></h3>
+
+	Jasime is useful for running unit tests. The Jasmine framework can also be used in other testing frameworks as a plugin.
+	Testing AngularJS applications with Jasmine requires the <span class="codefont">angular-mock</span> module.
+
+		<pre data-loc="test/unit/jasmineSpec.js"><code class="language-javascript">describe('List controller', function() {
+    describe('ListCtrl', function(){
+        var scope, ctrl, $httpBackend;
+
+        beforeEach(module('minimalistControllers')); //minimalistApp
+
+        //mock http connection
+        beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+            $httpBackend = _$httpBackend_;
+            $httpBackend.expectGET('data/list.json').respond([{nickname: 'Hans'}, {nickname: 'Franz'}]);
+
+            scope = $rootScope.$new();
+            ctrl = $controller('ListCtrl', {$scope: scope});
+        }));
+
+        it('should create "users" model with 2 users fetched via $http', function() {
+            expect(scope.users).toBeUndefined();
+            $httpBackend.flush();
+            expect(scope.users).toEqual([{nickname: 'Hans'}, {nickname: 'Franz'}]);
+        });
+
+    });
+});
+
+</code></pre>
+
+
+
+
+	<img src="img/test-jasmine-listctrl.jpg" alt="" class="img-responsive caption-img" />
+	<div class="caption">
+		Figure <span class="figure-number"></span>: Running Jasmine with <a href="../www/test/Jasmine-SpecRunner.html" target="_blank">Jasmine-SpecRunner.html</a>
+	</div>
+
+
+
+
+	<h3 id="testing-protractor">6.2 Testing with Protractor <span class="normalfont">(see <span class="codefont">test/e2e/protractorSpec.js</span>)</span></h3>
+
+		Frontend functionality can be tested automatically in several different browsers with Protractor.
+		The testing tool can be used to automatically fill information into form fields and click buttons of the website. The tests for the signup page can be found in <span class="codefont">test/e2e/protractorSpec.js</span>.
+
+		<pre data-loc="test/e2e/protractorSpec.js"><code class="language-javascript">//...
+describe('Signup page', function() {
+
+    var email_field = by.model('credentials.email'),
+        firstname_field = by.model('credentials.firstname'),
+        lastname_field = by.model('credentials.lastname'),
+        nickname_field = by.model('credentials.nickname'),
+        password_field = by.model('credentials.password'),
+        retypepassword_field = by.model('credentials.retypepassword'),
+		submitbutton = by.id('submitbutton');
+
+    it('should deactivate the signup button when email is not valid', function() {
+
+        browser.get('http://localhost/Webdev-project/www/#/signup');
+
+		//test a non-valid email
+        element(email_field).sendKeys('invalid-email');
+        expect(element(submitbutton).isEnabled()).toBe(false);
+
+    });
+
+    it('should show password error message when retyped password does not match password', function() {
+
+        browser.get('http://localhost/Webdev-project/www/#/signup');
+
+		//check password mismatch
+        element(password_field).sendKeys('testpassword');
+        element(retypepassword_field).sendKeys('notmatchingpassword');
+
+        expect(element(by.id('passwordmismatch')).isDisplayed()).toBeTruthy();
+
+    });
+
+    it('should redirect to the "edit profile" page after signup', function() {
+
+        browser.get('http://localhost/Webdev-project/www/#/signup');
+
+        element(email_field).sendKeys('test@email.com');
+        element(firstname_field).sendKeys('Test');
+        element(lastname_field).sendKeys('Tester');
+        element(nickname_field).sendKeys('Testy');
+        element(password_field).sendKeys('testpassword');
+        element(retypepassword_field).sendKeys('testpassword');
+
+        element(by.id('submitbutton')).click();
+
+        browser.sleep(1000);
+
+        //if signup is successful, we are redirected to profile edit page
+        expect(browser.getLocationAbsUrl()).toMatch("/edit/profile");
+
+    });
+
+    //...
+});
+
+</code></pre>
+
+	<img src="img/protractor-tests.jpg" alt="" class="img-responsive caption-img" />
+	<div class="caption">
+		Figure <span class="figure-number"></span>: Running tests with Protractor
+	</div>
+
+<h2 id="lessons-learned">7. Evaluation and lessons learned</h2>
+
+	This section gives a justification for the chosen technical, architectural and design decisions.
+Shortcomings of AngularJS and single-page applications in general are discussed in section 7.2.
+
+	<h3 id="approaches">7.1 Technologies and developer tools used in the project</h3>
+
+The website could be implemented with a wide range of alternative approaches.
+
+
+		<h4 id="appendix-B-app">Application</h4>
+
+		<div id="application-tools" style="margin-bottom:1em;">
+			<table style="width:100%">
+			<thead>
+			<tr>
+				<th style="width:20%">Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td id="tech-html5" class="">
+					<a href="http://www.w3.org/TR/html5/" title="www.w3.org/TR/html5/" target="_blank" class="externallink">HTML5</a>
+				</td>
+				<td>
+					The HyperText Markup Language was used in this project to store the order of things in a data attribute.
+
+					HTML5's local storage could be theoretically also used to reduce the amount of interactions with the backend.
+					However, the single-page application cannot completely replace the backend.
+					Local storage is supported by the major browsers<sup><a href="#ref-localstorage">X</a></sup>. Mobile devices however might not be able to use this feature.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-angular" class="">
+					<a href="http://www.w3.org/TR/html5/" title="www.w3.org/TR/html5/" target="_blank" class="externallink">AngularJS</a>
+				</td>
+				<td>
+					AngularJS is a popular single page application framework with a large development community. But it is not the only JavaScript framework. Possible alternatives are Ember.js, Backbone.js, Can.js, etc.
+
+					Many of these JavaScript frameworks violate the separation of concerns (see section 7.2).
+					KnockoutJS calls its approach &quot;Model-View-View Model (MVVM) pattern&quot;.
+
+					Henrik Joreteg gives an excellent review of JavaScript frameworks<sup><a href="#ref-angularmvc"></a></sup>.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-bootstrap" class="">
+					<a href="http://www.getbootstrap.com/" title="getbootstrap.com" target="_blank" class="externallink">Bootstrap</a>
+				</td>
+				<td>
+					Using Bootstrap as CSS framework offers several distinct advantages.
+					It is widely adopted and used on the web. That means users are familiar with the design elements of the CSS framework. Bootstrap is easy to use and provides a high functionality.
+					Its modular components allow customization of the framework to the project needs. The modular approach reduces the size of the CSS payload.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-sass" class="">
+					<a href="http://sass-lang.com/" title="sass-lang.com" target="_blank" class="externallink">Sass</a>
+				</td>
+				<td>
+					Sass is an extension of CSS. It is 100% compatible with any version of CSS. Sass was used in this project to write nested CSS, mixins and variables (see <span class="codefont">css/style.scss</span>).
+					<br />
+					An alternative to Sass is called Less. The two CSS languages are supported by a variety of tools. What CSS language and tool the developer uses comes down to personal preference.
+					Sass can be easily integrated with the Grunt task runner, which is why it was chosen for this project.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-php" class="">
+					<a href="http://php.net/" title="php.net" target="_blank" class="externallink">PHP</a>
+				</td>
+				<td>
+					<h5>Frontend</h5>
+					The Minimalist Social Network application could be implemented with a variety of platforms and programming languages other than JavaScript.
+
+					Possible programming languages for website development are
+					PHP Hypertext Prepocessor,
+					C# or Visual Basic (in ASP.NET),
+					Ruby (with its framwork &quot;on Rails&quot;), and
+					Python.
+
+					A variety of frameworks and template engines are available for each of these languages. Two further examples are the Django framework for Python and the Zend PHP framework.
+
+					<h5>Backend</h5>
+
+					PHP was used in this project to interface with the MySQL database and to serve data for the frontend.
+					PHP was chosen because of its familiarity to the author.
+
+					Security is always a concern in any web development project.
+					Input validation in JavaScript is not as simple as in PHP (which offers the trim, strip_tags, htmlspecialchars and htmlentities functions).
+
+					Since the application is a single-page application, the backend could be powered with other solutions than PHP.
+
+					An advantage of the node.js and Meteor platforms is that they allow the use of JavaScript both on the server and client side. A JavaScript backend would be a good match for this project.
+					Node.js needs to be running on top of a web server such as nginx or apache. This adds to the server load.
+
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-mysql" class="">
+					<a href="http://www.mysql.com/" title="mysql.com" target="_blank" class="externallink">MySQL</a>
+				</td>
+				<td>
+					MySQL claims to be the most popular open source database system.
+					Being relational, it is easy to understand and deploy.
+					MySQL is part of the standard &quot;LAMP&quot; (Linux, Apache, MySQL, PHP) set-up of many web servers. The technology to deploy MySQL is therefore readily available without requiring additional server software.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-packery" class="">
+					<a href="http://packery.metafizzy.co/" title="packery.metafizzy.co" target="_blank" class="externallink">Packery</a>
+				</td>
+				<td>
+					A &quot;masonry&quot;-style image gallery used in this project on the user profile page to
+					arrange the images.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-draggabilly" class="">
+					<a href="http://draggabilly.desandro.com/" title="draggabilly.desandro.com" target="_blank" class="externallink">Draggabilly</a>
+				</td>
+				<td>
+					A library to make DOM elements draggable,
+					used in this project on the user profile page to
+					allow re-arrangement of the images.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-ngdialog" class="">
+					<a href="https://github.com/likeastore/ngDialog" title="github.com/likeastore/ngDialog" target="_blank" class="externallink">ngDialog</a>
+				</td>
+				<td>
+					An AngularJS plugin to create dialog boxes.
+					The plugin was used in this project on the user profile page to
+					show an edit dialog box on the user&#39;s profile.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-dropzone" class="">
+					<a href="http://www.dropzonejs.com/" title="dropzonejs.com" target="_blank" class="externallink">Dropzone.js</a>
+				</td>
+				<td>
+					This open source library that provides drag&#39;n&#39;drop file uploads.
+					It was used in this project on the upload page to
+					<ul style="margin-bottom:0px;">
+						<li>upload things,</li>
+						<li>show preview of uploaded images.</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-simpleimage" class="">
+					<a href="http://www.white-hat-web-design.co.uk/articles/php-image-resizing.php" title="white-hat-web-design.co.uk" target="_blank" class="externallink">SimpleImage.php</a>
+				</td>
+				<td>
+					SimpleImage PHP class by Simon Jarvis to resize images.
+				</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+
+<p>
+		jQuery was not used in this project. AngularJS has a basic set of DOM traversal methods built-in (called jqLite). While AngularJS can also use jQuery if it&#39;s present, none of the external libraries used in this project (Packery, Dropzone, Draggabilly, and ngDialog) require jQuery.
+		jQuery is generally employed too lightheadedly (see also the discussion of the JavaScript payload below). Most jQuery features can be implemented with pure JavaScript without sacrificing cross-browser compatibility.
+		The only real use for jQuery is in websites that rely on AJAX and need to be cross-browser compatible.
+		AngularJS has its own component that allows to communicate via the XMLHttpRequest object or JSONP.
+		jQuery is therefore not needed in AngularJS applications.
+
+</p>
+
+<p>
+		The application could be built on top of an existing content management (CMS) system such as Wordpress or Drupal.
+		One advantage would be that a CMS offers a variety of predefined functions (for example for input validation and sanitization) and plugins. Provided that all functionality is developed as plugins, the maintenance of the code would be put into the hands of the CMS developers. This can be seen as a benefit or disadvantage.
+
+		Wordpress, as an example, has evolved into a rather &quot;messy&quot; assortment of functions and filters. It is difficult to customize for specific uses other than blogging. Its code-base is heavy and mostly redundant for the use in this project.
+</p>
+
+<p>
+		The Minimalist Social Network application's structure is of low complexity.
+		There are only two major concepts (things and users) that have to be stored in the database.
+		As content is user-contributed, the application does not require a sophisticated backend for editing content.
+		The website also has only few separate routes. For these reasons, the project was best implemented as a custom solution.
+</p>
+
+
+		<h4 id="appendix-B-dev-tools">Development tools</h4>
+
+		<div id="developer-tools">
+			<table style="width:100%">
+			<thead>
+			<tr>
+				<th style="width:20%">Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td id="tech-grunt" class="">
+					<a href="http://gruntjs.com/" title="gruntjs.com" target="_blank" class="externallink">Grunt</a>
+				</td>
+				<td>
+					Automated task runner,
+					used in this project to
+					<ul style="margin-bottom:0px;">
+						<li>watch *.css and *.js files for changes,</li>
+						<li>compile the Sass file into CSS,</li>
+						<li>do error checking for JavaScript (jslint) and html (htmlhint), and</li>
+						<li>build production-ready minified CSS (<a href="../www/css/_prod.css">_prod.css</a>) and JavaScript files (<a href="../www/app/_prod.js">_prod.js</a>).</li>
+						<!--<li>run tests.</li>-->
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-jasmine" class="">
+					<a href="http://jasmine.github.io/" title="jasmine.github.io" target="_blank" class="externallink">Jasmine</a>
+				</td>
+				<td>
+					Behavior-driven development framework for testing JavaScript code.
+					Jasmine was used in this project to
+					test a controller.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-protractor" class="">
+					<a href="http://angular.github.io/protractor/#/" title="angular.github.io/protractor/" target="_blank" class="externallink">Protractor</a>
+				</td>
+				<td>
+					End-to-end testing framework for AngularJS
+					to
+					test the signup page.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-npm" class="">
+					<a href="https://www.npmjs.org/" title="npmjs.org" target="_blank" class="externallink">NPM</a>
+				</td>
+				<td>
+					Node.js Package manager to install Node Packaged Modules for website development.
+					Used in this project to
+					install external libraries for Grunt and testing.
+				</td>
+			</tr>
+			<tr>
+				<td id="tech-workbench" class="">
+					<a href="http://dev.mysql.com/downloads/workbench/" title="dev.mysql.com/downloads/workbench/" target="_blank" class="externallink">MySQL Workbench</a>
+				</td>
+				<td>
+					SQL development environment that supports graphical layout and design of databases.
+					Used in this project to
+						design the database and
+						create the SQL file for installation.
+				</td>
+			</tr>
+			</table>
+			<ol>
+			</ol>
+		</div>
+
+
+
+	<h3 id="shortcomings">7.2 Shortcomings of AngularJS</h3>
+
+		<p>
+		AngularJS can help the developer be more productive. It offers elegant features to manipulate the DOM.
+		The framework also forces the developer to work with the correct HTTP status codes to respond to HTTP requests.
+		</p>
+
+		<p>
+		But there are many downsides to AngularJS and single-page applications (SPA) in general. The following table lists the issues (in no particular order).
+		</p>
+
+<table style="width:100%;border:2px;">
+
+<tr>
+<td>
+Level of difficulty
+</td>
+<td>
+		AngularJS is not a beginner&#39;s framework. The official tutorials are well-written and even include sample testing code for each tutorial step. However, the weakness of the documentation lies in the details. The many fairly popular questions about recurring website development topics on stackoverflow are a testament of the holes in the AngularJS documentation.
+		Another aspect that makes AngularJS difficult is the way it manages scopes.
+</td>
+</tr>
+
+<tr>
+<td>
+Scope complexity
+</td>
+<td>
+		Each AngularJS controller creates its own scope. It is difficult to pass information in between controllers and scopes. Included files will get their own child scope, which can be problematic if the included controllers need to interact with other elements of the page.
+		Events can be emitted upwards and downwards the chain of scopes, but only between immediate parents and childs. Emitting events from the rootScope behaves differently from emitting them in controller scope. As a best practice, the hierarchy of scopes should be kept as flat as possible.
+		AngularJS&#39; way of injecting modules, providers, services and scopes leads to messy declarations of functions, services and controllers.
+</td>
+</tr>
+
+<tr>
+<td>
+Unique framework
+</td>
+<td>
+		AngularJS demands from the developer to &quot;do things the angular way&quot;. Angular&#39;s camel-case notation for example may or may not be something that the developer likes. Implementing complex websites requires an in-depth knowledge of the AngularJS framework.
+</td>
+</tr>
+
+<tr>
+<td>
+W3C validation and incompatibility with older browsers
+</td>
+<td>
+		The angular directives should be written in a HTML5-compatible format (e.g. &quot;data-ng-show&quot; instead of &quot;ng-show&quot;).
+
+		But AngularJS will replace some of those directives (e.g. ng-init) on run-time, which produces html code that will not pass W3C validation.
+		<br />
+
+		The heavy reliance on HTML5 data attributes makes AngularJS incompatible with older browsers.
+
+		Sites powered by AngularJS cannot degrade gracefully for browser&#39;s that have limited or no JavaScript capabilities.
+</td>
+</tr>
+
+<tr>
+<td>
+Using external libraries
+</td>
+<td>
+		The AngularJS framework puts a considerable overhead on the usage of external JavaScript libraries.
+		A lot of the developer&#39;s time is spent on making external libraries work in AngularJS. The PackeryJS gallery library can for example not be applied directly on an ng-repeat directive, because angularJS manipulates the DOM after it is completely loaded<sup><a href="#ref-rowny">14</a></sup>. The solution is to create a custom directive and to instantiate Packery only when all elements of the loop have loaded. Another workaround is to use a setTimeout with short (or zero) duration (as employed in this application).
+
+</td>
+</tr>
+
+<tr>
+<td>
+Difficult to debug
+</td>
+<td>
+		Angular&#39;s error messages in the console are often confusing and not very helpful. Oftentimes, the errors do not point to the line in the application&#39;s source code, but to a line in the angularJS library (with additional information available online). This makes debugging difficult. A few of these error messages are assembled in <a href="#errors">appendix A</a>.
+		<br />
+		Another challenge when debugging is that errors in the backend are obfuscated by the representational layer of the AngularJS framework.
+		If a backend file has errors, the only way to see what&#39;s wrong is to inspect the particular request in the network request history of the browser.
+</td>
+</tr>
+
+<tr>
+<td>
+Separation of concerns
+</td>
+<td>
+		It is a best practice to separate markup, presentation and interaction in an MVC pattern.
+		But AngularJS blurs the line between application logic (controller), content (model) and representation (views). In AngularJS, the developer may describe behavior in the templates&#39; markup<sup><a href="#ref-angularmvc">15</a></sup>.
+		The <span class="codefont">templates/navbar.html</span> is an example of such markup that violates the separation of concerns.
+		A lot of the features that make AngularJS unique (e.g. immediate search results, form validation) depend on models and functionality being injected in the view&#39;s markup.
+</td>
+</tr>
+
+<tr>
+<td>
+Heavy payload
+</td>
+<td>
+		<p>
+		Angular is a relatively heavy framework. The minified JavaScript of this project amounts to 226KB in total. AngularJS contributes 130KB to this heavy payload (using only the cookies, route and main libraries). In comparison, the minified custom application logic (app.js, controllers.js and services.js) amounts only to 11KB. The minified CSS (95KB) could be further optimized by removing unecessary Bootstrap components.
+		</p>
+		In my personal opinion, any JavaScript files above 100KB in size are highly questionable. Even the use of jQuery in a project is often debateable.
+</td>
+</tr>
+
+<tr>
+<td>
+Slowness
+</td>
+<td>
+		Angular is slow<sup><a href="#ref-angularslowness">17</a></sup>. It takes a few moments for the page to load. While loading, the footer shows at the top of the page and then gets pushed down by the page&#39;s content. This issue is noticable on the local development environment. It is likely that it will be even worse on a production-environment.
+</td>
+</tr>
+
+<tr>
+<td>
+Form submissions
+</td>
+<td>
+		The back button of the browser works as intended in AngularJS. However, when a user submits a form, the page is never refreshed. That leads to the negative side-effect. If the page is manually refreshed after a form submission, the browser will ask the user if the form data should be submitted again.
+</td>
+</tr>
+
+<tr>
+<td>
+Visibility of elements
+</td>
+<td>
+		Angular is 100% frontend oriented. Angular only allows to control the visibility of elements on the page, but it does not remove them.
+		Angular is an asynchronous framework. Authentication events may occur after the page has loaded.
+		<br />
+		Angular is therefore not suitable for websites that have hidden areas, like for example a private members&#39; area. While hidden parts can be implemented, the fact that they are visible in the site structure makes them prone to attacks and manipulation.
+</td>
+</tr>
+
+<tr>
+<td>
+JSON security
+</td>
+<td>
+		Angular&#39;s optional JSON security prefix &quot;<span class="codefont">)]}&#39;,</span>&quot;<sup><a href="#ref-jsonprotection">18</a></sup> limits the portability of the application&#39;s JSON data.
+		AngularJS did not recognize the JSON prefix in this application and it had to be removed.
+</td>
+</tr>
+
+<tr>
+<td>
+Search Engine Optimisation
+</td>
+<td>
+		<p>
+		One of the major downsides of AngularJS is its URL structure. New websites rely on being indexed by search engines to get traffic. A new social network would especially profit from each profile page being indexed (to maximize traffic and advertisement revenue).
+		Out of the box, AngularJS uses the fragment idenitifer (#) for url routing. Search engines may not recognize the routes as separate parts of the application and may not index the website&#39;s pages. There are workarounds<sup><a href="#ref-angularseo">19</a></sup> <sup><a href="#ref-googleajaxspec">20</a></sup>, but they may break in the future. While Google can read JavaScript and supports both pushState and hashbangs (<span class="codefont">#!</span>), the Google crawler technology is far from being perfect<sup><a href="#ref-crawlability">21</a></sup>.
+		</p>
+
+		AngularJS offers an optional HTML5 mode that can be added to the router configuration:
+
+			<pre data-loc="app/app.js"><code class="language-javascript">$locationProvider.html5Mode(true);</code></pre>
+
+		Since it is not assured that the website will run in the server&#39;s webroot directory, this method could not be implemented in this assignment.
+
+		<br />
+		Another downside is that html meta tags cannot easily be added to pages in a single-page JavaScript application.
+		This severely limits the meta information that can be provided to search engines like Google, but also to Facebook's crawler.
+
+</td>
+</tr>
+
+<tr>
+<td>
+Vertical scrollbar
+</td>
+<td>
+		The vertical scrollbar was enabled permanently to prevent the page content from jumping when searching. AngularJS does not reset the scrollbar when switching between pages. This effect is for example visible when switching from the list page to the much shorter login page.
+</td>
+</tr>
+
+<tr>
+<td>
+AngularJS websites
+</td>
+<td>
+		The official AngularJS site lists many sample AngularJS websites and experiments<sup><a href="#ref-angularwebsites">14</a></sup>. Granted, this list of examples is user-submitted. But there is a noticable lack of high-profile AngularJS implementations. <a href="http://backbonejs.org" target="_blank" title="backbonejs.org">Backbone.js</a> on the other hand lists many industry-leading names<sup><a href="#ref-backboneexamples">16</a></sup>.
+</td>
+</tr>
+
+</table>
+
+
+
+
+<h2 id="future-work">8. Future work and known bugs</h2>
+
+		This is a prototype website. There are known bugs and many more features to implement:
+
+		<ul>
+			<li>Users need to be able to upload avatars.</li>
+			<li>Users should be allowed to leave messages on profiles and comment on things.</li>
+			<li>Users should be able to add things to a container via drag-and-drop.</li>
+			<li>The backend was kept very simple. The different backend files could be combined to create a RESTful webservice.</li>
+			<li>A better solution to the edit icon problem should be found.</li>
+			<li>When re-ordering images, the image that is being dragged sometimes shows behind other images in the gallery.</li>
+			<li>Opening the &quot;edit thing&quot; dialogue box re-arranges the gallery and sends a request to save the gallery order to the server.</li>
+			<li>Long user names break the layout on the <span class="codefont">#/list</span> page.</li>
+			<li>The lists of things on the profile and list page need to be split in several pages. AngularJS is surprisingly badly prepared for this common web design feature.</li>
+		</ul>
+
+
+<h2 id="summary">9. Summary</h2>
+
+		<p>
+		AngularJS is not easy to learn and it is still a relatively new technology. Certain common problems are not addressed in the documentation, others are documented sparsely. Common problems, like pagination, are not addressed at all. It is often difficult to find simple tutorials that describe the implementation of advanced website features. The developer is left alone. Detailed knowledge of the inner workings of AngularJS is often required to solve common web development problems.
+		</p>
+
+		<p>
+		Angular is an elegant solution for very simple websites.
+		I see its main application in two areas.
+
+		AngularJS excels as a framework for marketing and advertisement websites that have a low number of page transitions and that do not require authentication.
+		Angular also is excellent as a component to enrich (existing) websites with &quot;exciting&quot; features such as the instant search in DOM elements.
+
+<!--
+		But the bigger the website, the more difficulties arise.
+-->
+		AngularJS is adopted by a large developer community, but surprisingly few high-profile websites have adapted the framework.
+		</p>
+
+		<p>
+		For the above listed reasons, AngularJS proved to be a bad choice for this project.
+		<!--
+		The Minimalist Social Network web application would have to be rewritten from the ground up using traditional methods to overcome the deficiencies of AngularJS.
+		-->
+
+		Backbone.js appears to be a more stable, reliable, flexible and performant Javascript framework. Backbone.js is also adopted by some of the web&#39;s most visited websites.
+		</p>
+
+
+
+<h2 id="references">10. References</h2>
+
+	<noscript>The references require JavaScript to be enabled.</noscript>
+
+	<script type="text/javascript">
+	var references = {
+
+		'ref-kano': {author: 'N. Kano, N. Seraku, F. Takahashi, S. Tsuji', title: 'Attractive Quality and Must-Be Quality', year: 1984, journal: 'Journal of the Japanese Society for Quality Control, Vol. 14, No. 2, p. 147-156', note: '(In Japanese)'},
+
+		'ref-authconstant': {author: 'G. Hengeveld', title: 'Techniques for authentication in AngularJS applications', year: 2014, journal: '', url: 'https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec', accessed: '29/11/2014', note: ''},
+
+		'ref-angularngincludescope': {author: 'M. Rajcok', title: 'Answer to Stackoverflow question &quot;AngularJS - losing scope when using ng-include&quot;', year: 2013, journal: '', url: 'http://stackoverflow.com/a/14146317/426266', accessed: '29/11/2014', note: ''},
+
+		'ref-angularmvc': {author: 'H. Joreteg', title: 'Opinionated Rundown of JS Frameworks', year: 2014, journal: '', url: 'http://blog.andyet.com/2014/08/13/opinionated-rundown-of-js-frameworks', accessed: '20/11/2014', note: ''},
+
+		'ref-angularwebsites': {author: 'Google, Inc.', title: '206 neat things built with AngularJS', year: 2014, journal: '', url: 'https://builtwith.angularjs.org/', accessed: '20/11/2014', note: ''},
+
+		'ref-protractorkarma': {author: 'Stackoverflow user &quot;jack&quot;', title: 'Answer to Stackoverflow question &quot;Can Protractor and Karma be used together?&quot;', year: 2013, journal: '', url: 'http://stackoverflow.com/a/17407153/426266', accessed: '20/11/2014', note: ''},
+
+		'ref-packerytimeout': {author: 'J. Oster', title: 'Answer to Stackoverflow question &quot;AngularJS ng-repeat finish event&quot;', year: 2013, journal: '', url: 'http://stackoverflow.com/a/16134593/426266', accessed: '20/11/2014', note: ''},
+
+		'ref-angularslowness': {author: 'Q. Slack', title: '5 surprisingly painful things about client-side JS', year: 2014, journal: '', url: 'https://sourcegraph.com/blog/switching-from-angularjs-to-server-side-html', accessed: '20/11/2014', note: ''},
+
+		'ref-http-promises': {author: 'P. Kozlowski', title: 'Answer to Stackoverflow question &quot;Angular HttpPromise: difference between `success`/`error` methods and `then`&#39;s arguments&quot;', year: 2013, journal: '', url: 'http://stackoverflow.com/a/16385350/426266', accessed: '30/11/2014', note: ''},
+
+		'ref-minifaction': {author: 'Google, Inc.', title: 'Tutorial: XHRs & Dependency Injection. A Note on Minification.', year: 2014, journal: '', url: 'https://docs.angularjs.org/tutorial/step_05#a-note-on-minification', accessed: '18/11/2014', note: ''},
+
+		'ref-mysqldeprecated': {author: 'The PHP Group', title: 'Deprecated features in PHP 5.5.x', year: 2013, journal: '', url: 'http://php.net/manual/de/migration55.deprecated.php', accessed: '18/11/2014', note: ''},
+
+		'ref-mysqliconstructor': {author: 'M. Berkowski', title: 'Answer to Stackoverflow question "Mysqli can\'t fetch database?".', year: 2012, journal: '', url: 'http://stackoverflow.com/a/13435529/426266', accessed: '18/11/2014', note: ''},
+
+		'ref-localstorage': {author: 'A. Deveria', title: 'Can I use localstorage?', year: 2014, journal: '', url: 'http://caniuse.com/#search=localstorage', accessed: '1/12/2014', note: ''},
+
+		'ref-simpleimage': {author: 'S. Jarvis', title: 'Resizing images with PHP', year: 2006, journal: '', url: 'http://www.white-hat-web-design.co.uk/blog/resizing-images-with-php/', accessed: '29/11/2014', note: ''},
+
+		'ref-koreska': {author: 'J. Koreska', title: 'Answer to the Stackoverflow question &quot;How to dynamically change header based on angularjs partial view?&quot;', year: 2012, journal: '', url: 'http://stackoverflow.com/a/13407227/426266', accessed: '04/11/2014', note: ''},
+
+		'ref-jsonprotection': {author: 'Google, Inc.', title: 'AngularJS API Reference - $http Service. JSON Vulnerability Protection', year: 2014, journal: '', url: 'https://docs.angularjs.org/api/ng/service/$http#json-vulnerability-protection', accessed: '22/11/2014', note: ''},
+
+		'ref-navbarswitch': {author: 'D. Smith', title: 'Answer to the Stackoverflow question &quot;AngularJs: Hide navbar element based on route?&quot;', year: 2014, journal: '', url: 'http://stackoverflow.com/a/23838169/426266', accessed: '29/11/2014', note: ''},
+
+		'ref-brant': {author: 'M. Brant', title: 'Answer to the Stackoverflow question &quot;Angular HTTP post to PHP and undefined&quot;', year: 2013, journal: '', url: 'http://stackoverflow.com/a/15485690/426266', accessed: '04/11/2014', note: ''},
+
+		'ref-angularseo': {author: 'Matias N.', title: 'AngularJS and SEO', year: 2013, journal: '', url: 'http://www.yearofmoo.com/2012/11/angularjs-and-seo.html', accessed: '17/11/2014', note: ''},
+
+		'ref-crawlability': {author: 'E. Hendriks et al.', title: 'AngularJS and SEO', year: 2014, journal: '', url: 'http://googlewebmastercentral.blogspot.com/2014/05/understanding-web-pages-better.html', accessed: '17/11/2014', note: ''},
+
+		'ref-rowny': {author: 'J. Rowny', title: 'Answer to the Stackoverflow question &quot;Angularjs with Packery.js&quot;', year: 2013, journal: '', url: 'http://stackoverflow.com/a/19498340/426266', accessed: '04/11/2014', note: ''},
+
+		'ref-masonry': {author: 'R. Nimesh', title: 'Understanding Masonry Layout', year: 2014, journal: '', url: 'http://www.sitepoint.com/understanding-masonry-layout/', accessed: '18/11/2014', note: ''},
+
+		'ref-packerydirective': {author: 'Stackoverflow user &quot;poacher2k&quot;', title: 'Answer to Stackoverflow question &quot;Angularjs with Packery.js&quot;', year: 2014, journal: '', url: 'http://stackoverflow.com/a/21288318/426266', accessed: '18/11/2014', note: ''},
+
+		'ref-googleajaxspec': {author: 'Google Developers', title: 'Making AJAX Applications Crawlable - Full Specification', year: 2014, journal: '', url: 'https://developers.google.com/webmasters/ajax-crawling/docs/specification?csw=1', accessed: '18/11/2014', note: ''}
+
+	};
+	</script>
+
+	<div id="reference-container"></div>
+
+
+
+<h2 id="appendix">11. Appendix</h2>
+
+
+	<h3 id="errors">Appendix A - Sample of AngularJS error messages</h3>
+
+
+		<img src="img/unexpected_token.jpg" alt="unknown-module" class="caption-img">
+		<div class="caption">
+			Appendix Figure <span class="figure-number"></span>: An error in the backend produced an unexpected response to a request that expected JSON.
+		</div>
+
+		<img src="img/unknown-module.jpg" alt="unknown-module" class="caption-img">
+		<div class="caption">
+			Appendix Figure <span class="figure-number"></span>: Error when trying to load an unknown application module.
+		</div>
+
+		<img src="img/duplicate-controller.jpg" alt="duplicate-controller" class="caption-img">
+		<div class="caption">
+			Appendix Figure <span class="figure-number"></span>: Error when defining a controller with the same name as another controller.
+		</div>
+
+		<img src="img/unknown-controller.jpg" alt="unknown-controller" class="caption-img">
+		<div class="caption">
+			Appendix Figure <span class="figure-number"></span>: Error when adding an unknown controller to a DOM element.
+		</div>
+
+		<img src="img/duplicate-keys.jpg" alt="duplicate-keys" class="caption-img">
+		<div class="caption">
+			Appendix Figure <span class="figure-number"></span>: Error when the database failed and HTML was returned in response to a request that expected JSON data.
+		</div>
+
+
+
+	<h3 id="appendix-B">Appendix B - Technologies used to create this manual</h3>
+
+		<div>
+			This manual uses the following libraries:
+			<ul>
+				<li>jQuery. URL: <a href="http://jquery.com/" target="_blank" class="externallink">http://jquery.com</a></li>
+				<li>Bootstrap. URL: <a href="http://getbootstrap.com/" target="_blank" class="externallink">http://getbootstrap.com</a></li>
+				<li>Bootstrap Docs bs-callout CSS class. URL: <a href="http://getbootstrap.com/assets/css/docs.min.css" target="_blank" class="externallink">http://getbootstrap.com/assets/css/docs.min.css</a></li>
+				<li>Prism Syntax Highlighter. URL: <a href="http://prismjs.com/" target="_blank" class="externallink">http://prismjs.com</a></li>
+			</ul>
+		</div>
+
+
+        <footer>
+			<p id="footer">
+				<a class="back-to-top-link" href="#top"><i class="glyphicon glyphicon-chevron-up"></i> Back to Top</a>
+			</p>
+		</footer>
+
+	</div><!--col-->
+
+</div><!--row-->
+
+</div><!--containerfluid-->
+
+
+
+<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript" src="./js/bootstrap.min.scrollspy.js"></script>
+
+<script type="text/javascript"><!--
+//show the location for each code block
+$(document).ready(function(){
+    $.each($('pre'), function (index, value) {
+        if ($(value).data('loc')) {
+            //console.log(value);
+            $(this).css('position', 'static').css('margin-bottom', '1.4em');
+            $(this).before('<div class="gray" style="text-align:right;position:relative; font-size:10px; line-height:10px; margin:1em 0px 0px 0px; padding:0px; z-index:999;">' + $(value).data('loc') + '</div>');
+        }
+    });
+});
+//-->
+</script>
+
+<script type="text/javascript"><!--
+var ref_counter = 0;
+$(document).ready(function(){
+
+	/*manage the references in this page*/
+
+	$(document).ready(function(){
+
+		var i = 1, id, refstring;
+
+		//loop through the reference links in this document and output the references in the right order
+		$.each($('a[href^="#ref-"]'), function (key, value) {
+
+			//replace the number in the link
+			$(this).text(i);
+
+			//get the ref id
+			id = $(this).attr('href').substr(1); //remove #
+
+			if(references[id] !== undefined) {
+
+                //give the citation a nice title
+                $(this).attr('title', references[id].title);
+
+				//reset string
+				refstring = '<div class="reference" id="' + id + '">[' + i + '] ' + references[id].author + ' (' + references[id].year + ') ' + references[id].title + '. ';
+
+				if (references[id].journal) refstring = refstring + references[id].journal + '. ';
+
+				if (references[id].note) refstring = refstring + references[id].note + '. ';
+
+				if (references[id].url) refstring = refstring + 'Available from <a href="' + references[id].url + '" target="_blank" title="' + references[id].url + '" class="externallink">URL</a>. ';
+
+				if (references[id].accessed) refstring = refstring + '[Accessed: ' + references[id].accessed + '].';
+
+				refstring = refstring + '</div>';
+
+				i++;
+
+				//output the reference
+				$('#reference-container').append(refstring);
+			}
+
+		});
+
+	});
+
+    //highlight reference on click
+	$('a[href^="#ref-"]').click(function(){
+		$('.reference').removeClass('highlighted');
+		var fragment = this.getAttribute('href').replace('#', '');
+		$('#'+fragment).toggleClass('highlighted');
+	});
+
+
+	/*enumerate the figures*/
+	var figs = $(".figure-number");
+
+	$(figs).each( function( index ) {
+		ref_counter++;
+		$(this).text(ref_counter);
+	});
+	figs = null;
+
+
+	/* highlight last navbar item when bottom is reached */
+	/* Nick Craver 2010 : http://stackoverflow.com/a/3898152/426266 */
+	$(window).scroll(function(){
+
+		//console.log( 'res: '+($(document).height() - $(window).height() - $(window).scrollTop()) );
+		//console.log( ' ' );
+
+	   if(Math.abs($(document).height() - $(window).height() - $(window).scrollTop()) <= 10) {
+		$('.bs-docs-sidenav li').removeClass('active');
+		$('.bs-docs-sidenav li:last').addClass('active');
+	   }
+	});
+
+});
+//-->
+</script>
+
+
+<!-- prism syntax highlighting -->
+<script type="text/javascript" src="./js/prism.js"></script>
+
+</body>
+</html>

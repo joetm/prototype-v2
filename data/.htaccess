@@ -1,0 +1,8 @@
+#allow links to this file from technical manual
+#(not for production)
+<Files ".htaccess">
+    Require all granted
+</Files>
+
+#make the json files in this folder executable by PHP
+AddType application/x-httpd-php .json

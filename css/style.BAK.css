@@ -1,0 +1,113 @@
+.userlist{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+	.userlist_item{
+		padding:1em 0;
+		border-bottom:1px solid #000000;
+		margin:0px;
+		overflow:hidden;
+		max-height:150px;
+	}
+	.userlist_item .avatarimg{
+		float:left;
+		margin-right:1em;
+		
+		/* http://bavotasan.com/2011/circular-images-with-css3/ */
+		width: 120px;
+		height: 120px;
+		border-radius: 60px;
+		-webkit-border-radius: 60px;
+		-moz-border-radius: 60px;
+	
+	}
+	.userlist_item .userlist_text{
+			margin-left:1em;
+			float:left;
+			min-width:200px;
+	}
+		.userlist_item .userlist_text .userlist_name{
+			font-weight:bold;
+			font-size:2em;
+		}
+		.userlist_item .userlist_text .userlist_thingcount{
+		}
+		.userlist_item .userlist_text .more_link{
+
+		}
+
+		.userlist_item .thing .thing_img{
+			display:block;
+			float:left;
+			margin-right:0.5em;
+			margin-bottom:17px;
+
+			width:120px;
+			height:120px;
+			background-repeat:no-repeat;
+			background-position:50% 50%;
+			
+			background-size:cover; /*not compatible with all browsers*/
+		}
+
+/* http://angular-ui.github.io/bootstrap/#/getting_started */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.userdetail_box{
+	float:left;
+	border:1px solid #EAEAEA;
+	margin-right:1em;
+	margin-bottom:1em;
+	padding:10px;
+	background-color:#FAFAFA;
+	width:100%;
+}
+@media (max-width:992px){
+	.userdetail_box{
+		float:center;
+	}
+}
+	.userdetail_box h1{
+		margin:0px;
+		padding:0px;
+		float:left;
+	}
+	.userdetail_box .itemcount{
+		float:right;
+		font-size:1.3em;
+	}
+	.userdetail_box .avatar{
+		width:150px;
+		height:150px;
+	}
+	.userdetail_box .profile_avatar{
+		float:left;
+		margin-right:1em;
+	}
+
+#things_container{
+	width:100%;
+	margin-top:0.5em;
+}
+	#things_container .thing{
+		overflow:hidden;
+		margin-bottom:1.5em;
+		position:relative;
+		overflow:hidden;
+	}
+	#things_container img{
+		float:left;
+		max-width:100%;
+		height:auto;
+	}
+
+#footer{
+	width:80%;
+	color:#808080;
+	font-size:0.8em;
+	text-align:center;
+	margin:1em auto 1em auto;
+	padding:0.5em;
+	border-top:1px solid #EEEEEE;
+}

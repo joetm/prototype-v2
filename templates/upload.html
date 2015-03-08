@@ -1,0 +1,31 @@
+<div id="upload" class="page container-fluid"> <!--UploadCtrl-->
+
+	<div class="row">
+		<div class="col-xs-12">
+
+			<div class="clearfix">
+				<div class="pull-right" style="margin-top:30px;"><span class="label label-danger">Prototype</span> You are uploading to <a href="#/profile/{{currentUser.userid}}" title="/profile/{{currentUser.userid}}">user {{currentUser.userid}}</a>.</div>
+				<h1 class="pull-left">Upload Things</h1>
+			</div>
+
+			<form id="dropzone" class="dropzone"
+				dropzone
+				data-ng-controller="DropzoneCtrl">
+
+				<input name="userid" type="hidden" value="{{currentUser.userid}}" />
+
+				<!--
+				Drag and drop files here or click to upload
+				-->
+
+				<div class="fallback">
+					<input name="file" type="file" multiple />
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+</div>
+</div>

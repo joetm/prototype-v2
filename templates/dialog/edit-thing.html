@@ -1,0 +1,56 @@
+<h2>Edit Thing</h2>
+
+<form class="form-horizontal" data-ng-model="formdata">
+
+	<!--
+	thing id: {{thing}}
+	-->
+
+    <div class="clearfix">
+
+		<label for="th_ttl">Title</label>
+		<img class="loading_img" src="./css/img/loading.gif" alt="loading...">
+		<input id="th_ttl"
+			type="text"
+			name="title"
+			data-ng-model="thing.title"
+			class="form-control">
+
+		<label for="th_descr">Description</label>
+		<textarea id="th_descr"
+			type="text"
+			name="description"
+			data-ng-model="thing.description"
+			class="form-control" cols="60" rows="5"></textarea>
+
+		<div style="margin-top:10px;">
+			<input id="th_cont"
+				type="checkbox"
+				data-ng-checked="1 == thing.is_container"
+				data-ng-model="thing.is_container"
+				name="container">
+			<label for="th_cont">Is this thing a container?</label>
+			<!--
+			<div class="pull-right gray">
+				is_container: {{thing.is_container}}
+			</div>
+			-->
+		</div>
+
+		<div class="">
+			<input type="submit" style="margin-top:10px;"
+				name="Save"
+				data-ng-click="edit_thing(thing) && closeThisDialog('success')"
+				value="Submit"
+				class="btn btn-warning">
+
+			<input type="button" style="margin-top:10px;"
+				data-ng-click="closeThisDialog(0)"
+				name="cancel"
+				value="Cancel"
+				class="btn btn-default">
+	    </div>
+
+    </div>
+
+</form>

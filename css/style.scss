@@ -1,0 +1,468 @@
+/* SASS source file */
+
+$img-inner-padding: 5px;
+$black: #000000;
+$white: #FFFFFF;
+$gray: #909090;
+$form-error-required: #EE0000;
+
+
+/* -------------------*/
+
+/*always show scrollbar to prevent jumping of page when searching*/
+html{
+	overflow-y:scroll;
+}
+
+.gray{color:$gray;}
+.calitalized_name{
+	text-transform: capitalize
+}
+.loading_img{
+	width:15px;
+	height:15px;
+	border:0px;
+	display:none;
+}
+
+.avatarimg{
+	float:left;
+	margin-right:1em;
+
+	/* http://bavotasan.com/2011/circular-images-with-css3/ */
+	width: 120px;
+	height: 120px;
+	border-radius: 60px;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+
+}
+
+#navbar{
+	margin-bottom:0px;
+
+	.collapse{
+		display:none;
+	}
+}
+
+.error_msg{
+	text-align:center;
+	width:100%;
+}
+
+.userlist{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+}
+	.userlist_item{
+		padding:1em 0;
+		border-bottom:1px solid $black;
+		margin:0px;
+		overflow:hidden;
+		max-height:150px;
+
+		.userlist_text{
+			margin-left:1em;
+			float:left;
+			min-width:200px;
+		}
+		.userlist_text .userlist_name{
+			font-weight:bold;
+			font-size:2em;
+		}
+		.userlist_text .userlist_thingcount{
+		
+		}
+		.userlist_text .more_link{
+
+		}
+		.thing .thing_img{
+			display:block;
+			float:left;
+			margin-right:0.5em;
+			margin-bottom:17px;
+
+			width:120px;
+			height:120px;
+			background-repeat:no-repeat;
+			background-position:50% 50%;
+			
+			background-size:cover; /*not compatible with all browsers*/
+		}
+	}
+
+@media (max-width:768px){
+	.userlist_text .more_link{
+		float:left;
+	}
+}
+
+
+
+
+/* http://angular-ui.github.io/bootstrap/#/getting_started */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.userdetail_box{
+	float:left;
+	border:1px solid #EAEAEA;
+	margin-right:1em;
+	margin-bottom:1em;
+	padding:10px;
+	background-color:#FAFAFA;
+	width:100%;
+
+	h1{
+		margin:0px;
+		padding:0px;
+		float:left;
+	}
+	.itemcount{
+		float:right;
+		font-size:1.3em;
+	}
+	.avatar{
+		width:150px;
+		height:150px;
+	}
+	.profile_avatar{
+		float:left;
+		margin-right:1em;
+	}
+}
+@media (max-width:992px){
+	.userdetail_box{
+		float:none;
+	}
+}
+
+#things_container{
+	width:100%;
+	margin-top:0.5em;
+}
+
+.page{
+	margin-top:20px;
+}
+
+#profile{
+	
+	#things_container{
+		.thing{
+			position:relative;
+			height:250px;
+			overflow:hidden;
+			/* thing pics should all be the same height */
+			/*max-height:200px;*/
+		}
+	}
+}
+
+#homepage{
+	overflow: hidden;
+
+	.center{
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+	}
+	.btn.btn-warning{
+		margin-top:2em;
+	}
+	.ctext{
+		font-size:30px;
+		text-align:center;
+		color: rgba(30, 30, 30, 0.8); /* 255, 255, 255 */
+		text-shadow: 0 5px 10px rgba(255, 255, 255, 0.6); /* 10, 10, 10 */
+		font-weight:900;
+	}
+	.userexperience{
+		padding:10px 8px;
+	 	background-color:#FFFFFF;
+	 	margin-top:90px;
+	 	text-align:center;
+	 	border-radius: 5px;
+	 	
+	 	.avatarimg{
+	 		float:none;
+	 		margin:0px auto;
+	 		
+	 	}
+	 	.username{
+	 		font-weight:bold;
+	 		margin:10px auto 20px auto;
+	 	}
+	 	.usertext{
+	 		font-size:14px;
+	 		font-style:italic;
+	 		font-weight:200;
+	 		font-family:Helvetica,Arial,sans-serif;
+	 	}
+	}
+	.bold{
+		font-weight:900;
+	}
+	.roundedimage{
+		border-radius: 100px;
+	}
+	.row{
+		margin-top:15px;
+	}
+	.hptext{
+	
+	}
+	#hp_join{
+		margin:20px auto;
+		text-align:center;
+		
+		button{
+		}
+	}
+/*
+	.img-responsive{
+		height:auto;
+		max-height:300px;
+	}
+*/
+	.img-copyright{
+		position:relative;
+		bottom:5px;
+		left:40%;
+		font-size:10px;
+		color:$white;
+	}
+
+	.hp-downarrow{
+		margin:0px auto;
+	        text-transform: uppercase;
+		width: 70px;
+		height: 70px;
+		padding: 10px 9px;
+		border: 2px solid #fff;
+		border-radius: 35px;
+		font-size: 40px;
+		color: #A0A0E0;
+		background: 0 0;
+
+		-webkit-transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
+
+		&:hover{
+			color:#F0F0F0;
+			cursor:pointer;
+		}
+	}
+}
+
+.form-error{
+	color:$form-error-required;
+}
+
+#signup-form{
+	label span{
+		color:$form-error-required;
+	}
+	.legend{
+		color:$form-error-required;
+	}
+	h1{
+		margin-left:-15px;
+		margin-bottom:20px;
+	}
+	form input {
+		background-color: #FAFFBD;
+	}
+	.btn-default {
+		background-color:#F0F030;
+		color:#000000;
+	}
+	.btn-default:disabled  {
+		background-color:#CCCCCC;
+		color:#FFFFFF;
+	}
+	.btn-default:hover  {
+		background-color:#F0F030;
+		color:#FF0000;
+	}
+}
+
+#footer{
+	width:80%;
+	color:#808080;
+	font-size:0.8em;
+	text-align:center;
+	margin:1em auto 1em auto;
+	padding:0.5em;
+	border-top:1px solid #EEEEEE;
+	cursor:default;
+}
+
+#dropzone{
+	button{
+		margin:0px auto;
+	}
+}
+
+.ngdialog{
+z-index:1000000
+}
+
+/*
+//this will make the edit icon unreliable! (showing only 50% of the page reloads)
+* {
+  box-sizing: border-box;
+}
+*/
+.thing-container {
+  width: 100%;
+  /*
+  border: 1px solid darken(#eaeaea, 10%);
+  */
+  .gutter-sizer {
+    width: 2%;
+    display: none;
+  }
+
+  /* clearfix */
+  :after {
+    content: ' ';
+    display: block;
+    clear: both;
+  }
+
+  .thing, .module-sizer {
+    height: 280px;
+    z-index: 555;
+    border: 1px solid #eaeaea;
+/*
+    width: 25%;
+*/
+    /*
+    background-color: darken(#eaeaea, 15%);
+    */
+  }
+  
+  .thing {
+	float: left;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	overflow:hidden;
+	/*cursor: move;*/
+	:hover {
+		border-color: #FF0000;
+	}
+	.is-dragging {
+		z-index: 666;
+		cursor: move;
+		cursor: -moz-grabbing;
+		cursor: -webkit-grabbing;
+		cursor: -webkit-grab;
+	}
+	.edit-icon{
+		position:absolute;
+		top:5px;
+		right:5px;
+		padding:0px 3px;
+		cursor:pointer;
+		border:1px solid #909090;
+		background-color:$white;
+		border-radius: 10px;
+		/*edit-icon display error*/
+		display:block;
+		visibility:visible;
+		box-sizing:content-box;
+		z-index:999999;
+	}
+	.edit-icon:hover {
+		background-color: #FFEEEE;
+		color:#900000
+	}
+  }
+/*
+  .module.wide
+  {
+        width: 50%;
+  }
+*/
+}
+
+/*parallax homepage style*/
+/*based on tutorial: Simple Parallax Scrolling Effect*/
+/*http://callmenick.com/2014/07/15/simple-parallax-scrolling-effect/*/
+#homepage{
+	.container {
+		max-width: 1260px;
+		margin: 0 auto;
+	}
+	section.module:last-child {
+		margin-bottom: 0;
+	}
+	section.module h2 {
+		margin-bottom: 40px;
+		font-family: "Roboto Slab", Arial, sans-serif;
+		font-size: 30px;
+	}
+	section.module p {
+		margin-bottom: 40px;
+		font-size: 16px;
+	}
+	section.module p:last-child {
+		margin-bottom: 0;
+	}
+	section.module.content {
+		padding: 40px 0;
+	}
+	section.module.parallax {
+		height: 600px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+	section.module.parallax h1 {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 48px;
+		line-height: 600px;
+		font-weight: 700;
+		text-align: center;
+		text-transform: uppercase;
+		text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	}
+	section.module.parallax h3 {
+		color: rgba(255, 255, 255, 0.5);
+		font-size: 22px;
+		line-height: 1.8em;
+		font-weight: 300;
+		text-align: center;
+		text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+	section.module.parallax-1 {
+		background-image:url(../images/homepage/Business-reworked.jpg);
+	}
+	section.module.parallax-2 {
+		background-image: url(../images/homepage/worldmap.jpg);
+	}
+	section.module.parallax-3 {
+		background-image: url(../images/homepage/12344_16678_Bild1_blurred.jpg);
+	}
+}
+	@media all and (min-width: 600px) {
+		#homepage section.module h2 {
+			font-size: 42px;
+		}
+		#homepage section.module p {
+			font-size: 20px;
+		}
+		#homepage section.module.parallax h1 {
+			font-size: 96px;
+		}
+	}
+	@media all and (min-width: 960px) {
+		#homepage section.module.parallax h1 {
+			font-size: 160px;
+		}
+	}

@@ -1,0 +1,92 @@
+<div id="profile" class="page container-fluid"> <!-- data-ng-controller="ProfileCtrl" -->
+
+
+	<div data-ng-show="error.status" class="error_msg">
+		<span class="label label-danger">{{error.status}} Error</span>
+		{{error.msg}}
+	</div>
+
+
+	<div class="row clearfix" data-ng-hide="error.status">
+
+		<div class="col-xs-3 col-sm-2 col-lg-1" style="position:relative;">
+			<img class="avatarimg" data-ng-src="./images/{{user.avatar}}" alt="" />
+			<!--
+			<div class="user-badge">*Pro Minimalist*</div>
+			-->
+		</div>
+
+		<div class="col-xs-9 col-sm-10 col-lg-11">
+			<div class="userdetail_box">
+					<div class="clearfix">
+						<h1>
+						<span class="calitalized_name" data-ng-if="user.first_name">
+							{{user.first_name}}
+						</span>
+						<span data-ng-if="user.nick_name != user.first_name">
+							<span data-ng-if="user.first_name || user.last_name">
+								&quot;<span class="calitalized_name">{{user.nick_name}}</span>&quot;
+							</span>
+							<span class="calitalized_name" data-ng-if="!user.first_name && !user.last_name">
+								{{user.nick_name}}
+							</span>
+						</span>
+						<span class="calitalized_name" data-ng-if="user.last_name">
+							{{user.last_name}}
+						</span>
+						</h1>
+						<div class="itemcount">
+							{{user.things.length}} things
+						</div>
+					</div>
+					<div class="aboutme">
+						{{user.about_me}}
+					</div>
+			</div>
+		</div>
+
+	</div><!--row-->
+
+
+
+
+	<!--
+	<div class="gray clearfix" style="text-align:center" data-ng-hide="error.status">
+		<span class="label label-danger">Prototype</span>
+		user.userid: {{user.userid}},
+		currentUser.userid: {{currentUser.userid || 'null'}}
+	</div>
+	-->
+
+
+
+	<div style="margin:20px 0px;position:relative;" class="clearfix" data-ng-hide="error.status">
+
+		<div id="thing-container" class="thing-container" packerygallery>
+
+			<!-- sizers -->
+			<div class="module-sizer col-xs-6 col-sm-4 col-md-3 col-lg-2"></div><!-- data-ng-hide="user.things"-->
+			<div class="gutter-sizer"></div>
+
+			<div id="thing_{{thing.thingid}}"
+				data-ng-repeat="thing in user.things"
+				on-last-repeat
+				data-id="{{thing.thingid}}"
+				class="thing col-xs-6 col-sm-4 col-md-3 col-lg-2"
+				style="background-image:url(images/{{thing.thumb_medium}});z-index:777;"
+				alt="{{thing.title}}"
+				title="{{thing.title}}">
+
+				<div class="edit-icon"
+                    data-ng-show="currentUser.userid === user.userid"
+					data-ng-click="showEditDialog(thing)">
+					<i class="glyphicon glyphicon-pencil" title="Edit"></i>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

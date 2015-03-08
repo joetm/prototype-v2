@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="minimalistApp">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title data-ng-bind="title">Minimalist Social Network</title>
+
+	<!--
+    <base href="<?php echo $_SERVER['REQUEST_URI'] ?>">
+    <meta name="fragment" content="!" />
+	-->
+
+	<!--traditional meta tags for AngularJS?-->
+	<meta name="keywords" content="minimalism, minimalist, social network" />
+	<meta name="description" content="A social network prototype in AngularJS." />
+	<meta name="author" content="J. Oppenlaender" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=yes" />
+
+	<link rel="shortcut icon" href="favicon.ico"/>
+
+	<!--uncomment for individual styles
+	<link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="./css/ngDialog.css" type="text/css" />
+    <link rel="stylesheet" href="./css/ngDialog-theme-default.css">
+    <link rel="stylesheet" href="./css/ngDialog-theme-plain.css">
+	<link rel="stylesheet" href="./css/dropzone.css" type="text/css" />
+	<link rel="stylesheet" href="./css/style.css" type="text/css" />
+	-->
+
+	<!--production-ready style-->
+	<link rel="stylesheet" href="./css/_prod.css" type="text/css" />
+
+</head>
+<body data-ng-controller="BodyController">
+
+	<div data-ng-include data-src="'./templates/navbar.html'"></div>
+
+	<div data-ng-view></div> <!--class="autoscroll"-->
+
+	<div id="footer"><!--&copy; 2014--> Minimalist Social Network</div>
+
+
+
+	<!--angular-->
+	<script src="./js/angular/angular.min.js"></script>
+	<script src="./js/angular/angular-route.min.js"></script>
+    <script src="./js/angular/angular-cookies.min.js"></script>
+
+	<!--Desandro's imageloaded
+	http://desandro.mit-license.org/
+	-->
+	<script src="./js/imagesloaded.pkgd.min.js"></script>
+
+	<!-- Packery
+	http://packery.metafizzy.co/
+	-->
+	<script src="./js/packery.pkgd.min.js"></script>
+
+	<!-- Draggability
+	http://draggabilly.desandro.com/
+	http://desandro.mit-license.org/
+	-->
+	<script src="./js/draggabilly.pkgd.min.js"></script>
+
+	<!--ngDialog-->
+	<!-- https://github.com/likeastore/ngDialog -->
+    <script src="./js/ngDialog.min.js"></script>
+
+	<!--dropzonejs-->
+    <script src="./js/dropzone.min.js"></script>
+
+	<!--main application-->
+	<script src="./app/controllers.js"></script>
+	<script src="./app/services.js"></script>
+	<script src="./app/app.js"></script>
+
+
+
+	<!--production-ready javascript is located here:
+	<script src="./app/_prod.js"></script>
+	-->
+
+</body>
+</html>
